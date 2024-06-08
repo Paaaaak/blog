@@ -1,6 +1,6 @@
-import "./globals.css";
 import Navbar from "./components/Navbar";
 import MyProfilePic from "./components/MyProfilePic";
+import '@/sass/main.scss';
 
 export const metadata = {
   title: "Jaehyeon's Blog",
@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="dark:bg-slate-800">
+      <body className="container">
         <Navbar></Navbar>
         <MyProfilePic></MyProfilePic>
         {children}
