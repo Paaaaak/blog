@@ -13,7 +13,7 @@ export default function ListItem({ post }: Props) {
     <li className="">
       <Link
         className=""
-        href={`/posts/${id}`}
+        href={`/post/${id}`}
       >
         {title}
       </Link>

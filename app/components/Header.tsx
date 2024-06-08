@@ -3,6 +3,7 @@
 import React from "react";
 import Menu from "@mui/icons-material/Menu";
 import MenuOpen from "@mui/icons-material/MenuOpen";
+import Link from "next/link";
 
 const Header = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -14,21 +15,21 @@ const Header = () => {
     <div className="header">
       <nav className="header__nav">
         <label className="header__label">
-          <a className="header__link" href="/">
+          <Link href="/">
             <h1 className="header__title">Paaak</h1>
-          </a>
+          </Link>
         </label>
         <div className="header__menu-container">
           <ul className="header__menu-list">
             <li className="header__menu-item">
-              <a className="header__menu-link" href="/tags">
+              <Link href="/posts">
                 Posts
-              </a>
+              </Link>
             </li>
             <li className="header__menu-item">
-              <a className="header__menu-link" href="/">
+              <Link href="/about">
                 About
-              </a>
+              </Link>
             </li>
           </ul>
           <div
@@ -52,14 +53,14 @@ const Header = () => {
       >
         <ul className="header__burger-menu-list">
           <li className="header__burger-menu-item">
-            <a className="header__burger-menu-link" href="/tags">
+            <Link href="/tags">
               Posts
-            </a>
+            </Link>
           </li>
           <li className="header__burger-menu-item">
-            <a className="header__burger-menu-link" href="/">
+            <Link href="/">
               About
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

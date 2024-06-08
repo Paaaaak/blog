@@ -1,4 +1,5 @@
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import MyProfilePic from "./components/MyProfilePic";
 import '@/sass/main.scss';
 
@@ -16,8 +17,8 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Header></Header>
-        <MyProfilePic></MyProfilePic>
         {children}
+        <Footer></Footer>
       </body>
     </html>
   );
