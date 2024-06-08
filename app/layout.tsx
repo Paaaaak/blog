@@ -1,4 +1,4 @@
-import Navbar from "./components/Navbar";
+import Header from "./components/Header";
 import MyProfilePic from "./components/MyProfilePic";
 import '@/sass/main.scss';
 
@@ -14,8 +14,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="container">
-        <Navbar></Navbar>
+      <body>
+        <Header></Header>
         <MyProfilePic></MyProfilePic>
         {children}
       </body>

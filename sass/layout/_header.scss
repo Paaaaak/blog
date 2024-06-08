@@ -1,0 +1,122 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 999;
+    background-color: rgba(224, 224, 224, 0.7);
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid $secondary-color;
+}
+
+.header__nav {
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 10px;
+    padding-left: 0 !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 900px;
+}
+
+.header__label {
+    font-size: 24px;
+    font-weight: bold;
+
+    a {
+        text-decoration: none;
+        color: $light-gray;
+
+        img {
+            width: 100px;
+        }
+    }
+}
+
+.header__menu-container {
+    display: flex;
+    flex-direction: row!important;
+}
+
+.header__menu-list {
+    list-style: none;
+    display: flex;
+    margin: auto;
+}
+
+.header__menu-item {
+    margin-right: 25px;
+
+    a {
+        text-decoration: none;
+        font-size: 17px;
+        color: $dark-gray;
+
+        &:hover {
+            color: $secondary-color;
+        }
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .header__nav {
+        width: calc(100% - 10vw);
+        margin: 0 auto;
+    }
+}
+
+.header__toggle-button {
+    font-size: 26px;
+    cursor: pointer;
+    position: relative;
+    display: none;
+    margin-left: 8px;
+}
+
+@media only screen and (max-width: 500px) {
+    .header__nav .header__menu-list {
+        display: none;
+    }
+
+    .header__toggle-button {
+        display: block;
+        padding-top: 7px;
+    }
+}
+
+.header__burger-menu {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    background-color: rgba(33, 37, 41, 0.7);
+    /* 배경 색상 추가 */
+    backdrop-filter: blur(5px);
+    /* 배경 흐리게 처리 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateY(-20rem);
+    margin-top: 1px;
+}
+
+.header__burger-menu-item {
+    padding-top: 15px;
+}
+
+.header__burger-menu-link {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: $dark-gray;
+}
+
+.header__burger-menu-link:hover {
+    border-bottom: 1px solid $light-gray;
+}
+
+.header__burger-menu--show {
+    transform: translateY(0rem);
+}
