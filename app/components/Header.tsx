@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 
 const imageUrl: { [key: string]: string } = {
-  main: "https://i.pinimg.com/736x/c8/07/8e/c8078ea68d5a96100bbdae9477ba8885.jpg",
+  main: "https://i.pinimg.com/1200x/e6/23/30/e623306acb678b10a2ea8dbc0ac3dca3.jpg",
   posts:
     "https://images.pexels.com/photos/1249183/pexels-photo-1249183.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   about:

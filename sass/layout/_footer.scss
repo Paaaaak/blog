@@ -1,0 +1,21 @@
+footer {
+    margin-top: 80px;
+    padding: 50px 10px 20px 10px;
+    text-align: center;
+    border-top: 1px solid rgb(139, 139, 139);
+  
+    p {
+        margin-bottom: 1rem;
+    }
+
+    .footer-social-links {
+      text-align: center;
+  
+      ul.social-links-list {
+        li {
+          margin-right: 25px;
+          display: inline-block;
+        }
+      }
+    }
+  }

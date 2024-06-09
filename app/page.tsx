@@ -1,10 +1,10 @@
 import Posts from "./components/Posts";
-import MyProfilePic from "./components/MyProfilePic";
+import Namecard from "./components/Namecard";
 
 export default function Home() {
   return (
     <main className="main">
-      <MyProfilePic></MyProfilePic>
+      <Namecard></Namecard>
       <p className="">
         Hello and Welcome 👋&nbsp;
         <span className="">
