@@ -1,5 +1,5 @@
-import Posts from "./components/Posts"
-import MyProfilePic from "./components/MyProfilePic"
+import Posts from "./components/Posts";
+import MyProfilePic from "./components/MyProfilePic";
 
 export default function Home() {
   return (
@@ -13,5 +13,5 @@ export default function Home() {
       </p>
       <Posts></Posts>
     </main>
-  )
+  );
 }

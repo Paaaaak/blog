@@ -2,7 +2,11 @@
 
 @import 'base/base';
 
+@import 'components/namecard';
+
 @import 'layout/header';
 @import 'layout/navigation';
 
 @import 'pages/main';
+@import 'pages/posts';
+@import 'pages/about';

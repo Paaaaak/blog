@@ -2,6 +2,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import MyProfilePic from "./components/MyProfilePic";
 import '@/sass/main.scss';
+import Navbar from "./components/Navbar";
 
 export const metadata = {
   title: "Jaehyeon's Blog",
@@ -16,7 +17,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header></Header>
+        <Navbar></Navbar>
+        <Header pageType="main"></Header>
         {children}
         <Footer></Footer>
       </body>

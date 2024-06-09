@@ -1,70 +1,62 @@
 "use client";
 
-import React from "react";
-import Menu from "@mui/icons-material/Menu";
-import MenuOpen from "@mui/icons-material/MenuOpen";
-import Link from "next/link";
+import React, { useState, useEffect } from "react";
 
-const Header = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+const imageUrl: { [key: string]: string } = {
+  main: "https://i.pinimg.com/736x/c8/07/8e/c8078ea68d5a96100bbdae9477ba8885.jpg",
+  posts:
+    "https://images.pexels.com/photos/1249183/pexels-photo-1249183.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  about:
+    "https://images.pexels.com/photos/2923595/pexels-photo-2923595.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+};
+
+const titles: { [key: string]: string } = {
+  main: "Paak's Architect",
+  posts: "All Posts",
+  about: "About",
+};
+
+const subtitles: { [key: string]: string } = {
+  main: "Creating helpful content for Frontend Development",
+  posts: "Check out all posts with various topics",
+  about: "Introduce myself",
+};
+
+interface HeaderProps {
+  pageTitle?: string;
+  pageSubtitle?: string;
+  pageType: string;
+  singlePostBackground?: string;
+}
+
+const Header: React.FC<HeaderProps> = ({
+  pageTitle,
+  pageSubtitle,
+  pageType,
+  singlePostBackground,
+}) => {
+  const [background, setBackground] = useState<string | null>(null);
+  const [title, setTitle] = useState<string | null>(null);
+  const [subtitle, setSubtitle] = useState<string | null>(null);
+
+  useEffect(() => {
+    setBackground(singlePostBackground || imageUrl[pageType]);
+    setTitle(pageTitle ? pageTitle : titles[pageType]);
+    setSubtitle(pageSubtitle ? pageSubtitle : subtitles[pageType]);
+  }, []);
 
   return (
-    <div className="header">
-      <nav className="header__nav">
-        <label className="header__label">
-          <Link href="/">
-            <h1 className="header__title">Paaak</h1>
-          </Link>
-        </label>
-        <div className="header__menu-container">
-          <ul className="header__menu-list">
-            <li className="header__menu-item">
-              <Link href="/posts">
-                Posts
-              </Link>
-            </li>
-            <li className="header__menu-item">
-              <Link href="/about">
-                About
-              </Link>
-            </li>
-          </ul>
-          <div
-            className={`header__toggle-button ${
-              isOpen ? "header__toggle-button--active" : ""
-            }`}
-            onClick={toggleMenu}
-          >
-            {isOpen ? (
-              <MenuOpen></MenuOpen>
-            ) : (
-              <Menu></Menu>
-            )}
-          </div>
-        </div>
-      </nav>
+    <header>
       <div
-        className={`header__burger-menu ${
-          isOpen ? "header__burger-menu--show" : ""
-        }`}
+        className="header-text"
+        style={{ backgroundImage: `url(${background})` }}
       >
-        <ul className="header__burger-menu-list">
-          <li className="header__burger-menu-item">
-            <Link href="/tags">
-              Posts
-            </Link>
-          </li>
-          <li className="header__burger-menu-item">
-            <Link href="/">
-              About
-            </Link>
-          </li>
-        </ul>
+        <div className={`header-title ${pageType === "post" && "post"}`}>
+          <span>{title}</span>
+          <span>{subtitle}</span>
+        </div>
       </div>
-    </div>
+    </header>
   );
 };
 
