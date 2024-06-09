@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer>
       <p className="text-center">© 2024-present. All right reserved.</p>
-      <p className="text-center">Hardcrafted by Jaehyeon with Gatsby</p>
+      <p className="text-center">Hardcrafted by Jaehyeon</p>
       <div className="footer-social-links">
         <ul className="social-links-list">
           <li>

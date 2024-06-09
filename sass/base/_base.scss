@@ -10,3 +10,56 @@ body {
     text-shadow: 0px 0px 10px black;
     font-family: $site-font;
 }
+
+
+.common-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+  .common-button {
+    background-color: transparent;
+    border-radius: 8px;
+    padding: 10px 60px 10px 30px;
+    transition: .3s;
+    border: 1px solid $light-green;
+    position: relative;
+  }
+  .common-button:hover {
+    background-color: #30834d91;
+    .arrow {
+      right: 25px;
+    }
+  }
+  .common-button span {
+    color: $light-gray;
+    font-size: 1.2rem;
+  }
+  
+  .arrow {
+    position: absolute;
+    top: 24px;
+    right: 30px;
+    width: 8%;
+    height: 2px;
+    background-color: hsl(0, 0%, 100%);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+    transition: right 0.5s ease; /* 변화가 일어날 속성과 시간, 그리고 이징 함수 설정 */
+  }
+  .arrow::after, .arrow::before {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 2px;
+    right: -2px;
+    background-color: #fff;
+  }
+  .arrow::after {
+    top: -3px;
+    transform: rotate(45deg);
+  }
+  .arrow::before {
+    top: 3px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+    transform: rotate(-45deg);
+  }

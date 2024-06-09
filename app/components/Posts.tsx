@@ -1,16 +1,16 @@
 import { getSortedPostsData } from "@/lib/posts";
-import ListItem from "./ListItem";
+import Post from "./Post";
 
-export default function Post() {
+export default function Posts() {
   const posts = getSortedPostsData();
 
   return (
-    <section className="">
-      <h2 className="">Blog</h2>
+    <section>
       <ul className="">
-        {posts.map((post) => (
-          <ListItem key={post.id} post={post} />
-        ))}
+        {posts.map((post) => {
+          console.log(post);
+          return <Post key={post.id} post={post} />;
+        })}
       </ul>
     </section>
   );
