@@ -8,7 +8,9 @@ export default function Posts() {
     <section>
       <ul className="">
         {posts.map((post) => {
-          console.log(post);
+          if (!post.isPublished) {
+            return;
+          }
           return <Post key={post.id} post={post} />;
         })}
       </ul>

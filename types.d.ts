@@ -4,4 +4,6 @@ type BlogPost = {
   subtitle: string;
   date: string;
   tags: string[];
+  backgroundImage: string;
+  isPublished: boolean;
 };
