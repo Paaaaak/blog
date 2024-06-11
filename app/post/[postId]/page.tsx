@@ -2,6 +2,12 @@ import getFormattedDate from "@/lib/getFormattedDate";
 import { getSortedPostsData, getPostData } from "@/lib/posts";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import Highlight from "@/app/components/Highlight";
+
+const components = {
+  Highlight
+}
 
 export function generateStaticParams() {
   const posts = getSortedPostsData();
@@ -34,7 +40,7 @@ export default async function Post({ params }: { params: { postId: string } }) {
 
   if (!posts.find((post) => post.id === postId)) notFound();
 
-  const { title, date, contentHtml } = await getPostData(postId);
+  const { title, date, content } = await getPostData(postId);
 
   const pubDate = getFormattedDate(date);
 
@@ -43,7 +49,8 @@ export default async function Post({ params }: { params: { postId: string } }) {
       <h1 className="">{title}</h1>
       <p className="">{pubDate}</p>
       <article>
-        <section dangerouslySetInnerHTML={{ __html: contentHtml }} />
+        {/* <section dangerouslySetInnerHTML={{ __html: contentHtml }} /> */}
+        <MDXRemote source={content} components={components}></MDXRemote>
         <p>
           <Link href="/">← Back to home</Link>
         </p>
