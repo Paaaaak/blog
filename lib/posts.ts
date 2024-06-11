@@ -23,7 +23,9 @@ export function getSortedPostsData() {
     const blogPost: BlogPost = {
       id,
       title: matterResult.data.title,
+      subtitle: matterResult.data.subtitle,
       date: matterResult.data.date,
+      tags: matterResult.data.tags || [],
     };
 
     // Combine the data with the id
@@ -45,17 +47,12 @@ export async function getPostData(id: string) {
   const { data: frontmatter, content } = matter(fileContents);
   console.log(frontmatter, content);
 
-
-  // const processedContent = await remark()
-  //   .use(html)
-  //   .process(matterResult.content);
-
-  // const contentHtml = processedContent.toString();
-
   const blogPostWithHTML: BlogPost & { content: string } = {
     id,
     title: frontmatter.title,
+    subtitle: frontmatter.subtitle,
     date: frontmatter.date,
+    tags: frontmatter.tags,
     content,
   };
 

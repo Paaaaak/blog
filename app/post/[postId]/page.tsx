@@ -49,7 +49,6 @@ export default async function Post({ params }: { params: { postId: string } }) {
       <h1 className="">{title}</h1>
       <p className="">{pubDate}</p>
       <article>
-        {/* <section dangerouslySetInnerHTML={{ __html: contentHtml }} /> */}
         <MDXRemote source={content} components={components}></MDXRemote>
         <p>
           <Link href="/">← Back to home</Link>
