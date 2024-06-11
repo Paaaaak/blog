@@ -26,6 +26,8 @@ export function getSortedPostsData() {
       subtitle: matterResult.data.subtitle,
       date: matterResult.data.date,
       tags: matterResult.data.tags || [],
+      backgroundImage: matterResult.data.backgroundImage,
+      isPublished: matterResult.data.isPublished,
     };
 
     // Combine the data with the id
@@ -53,6 +55,8 @@ export async function getPostData(id: string) {
     subtitle: frontmatter.subtitle,
     date: frontmatter.date,
     tags: frontmatter.tags,
+    backgroundImage: frontmatter.backgroundImage, 
+    isPublished: frontmatter.isPublished,
     content,
   };
 

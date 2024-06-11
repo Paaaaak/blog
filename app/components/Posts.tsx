@@ -8,6 +8,7 @@ export default function Posts() {
     <section>
       <ul className="">
         {posts.map((post) => {
+          console.log(post)
           if (!post.isPublished) {
             return;
           }

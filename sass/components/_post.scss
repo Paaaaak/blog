@@ -1,6 +1,5 @@
 .post-container {
     position: relative;
-    padding: 20px;
     width: 100%;
     height: 100%;
     cursor: pointer;
@@ -18,7 +17,23 @@
     border-radius: 10px;
 }
 
+.post-thumb-nail {
+    width: 200px;
+    height: 200px;
+}
+
+@media only screen and (max-width: 650px) {
+    .post-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .post-thumb-nail {
+        width: 100vw;
+    }
+}
+
 .post-container a {
+    padding: 20px;
     color: inherit;
     text-decoration: none;
     transition: 0.3s;

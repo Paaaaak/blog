@@ -1,16 +1,20 @@
 import Link from "next/link";
 import getFormattedDate from "@/lib/getFormattedDate";
+import Image from "next/image";
 
 type Props = {
   post: BlogPost;
 };
 
 export default function Post({ post }: Props) {
-  const { id, title, subtitle, date, tags } = post;
+  const { id, title, subtitle, date, tags, backgroundImage } = post;
   const formattedDate = getFormattedDate(date);
 
   return (
     <div className="post-container dark">
+      <div className="post-thumb-nail">
+        <img src={backgroundImage}></img>
+      </div>
       <Link href={`/post/${id}`}>
         <div className="post-body">
           <ul className="post-tags">
