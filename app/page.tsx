@@ -1,4 +1,4 @@
-import Posts from "./components/Posts";
+import RecentPosts from "./components/RecentPosts";
 import Namecard from "./components/Namecard";
 import Link from "next/link";
 
@@ -9,7 +9,7 @@ export default function Home() {
       <h2 style={{ paddingLeft: '25px', margin: '30px 0', color: 'rgb(170, 170, 170)' }}>Recently published</h2>
 
 
-      <Posts></Posts>
+      <RecentPosts></RecentPosts>
 
       <div className="common-button-container">
         <Link href={'/posts'} style={{ textDecoration: 'none' }}>
