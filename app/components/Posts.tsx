@@ -1,20 +1,48 @@
-import { getSortedPostsData } from "@/lib/posts";
-import Post from "./Post";
+'use client'
 
-export default function Posts() {
-  const posts = getSortedPostsData();
+import Post from "./Post";
+import { useState, useEffect } from "react";
+
+interface BlogListProps {
+  posts: BlogPost[];
+}
+
+const Posts: React.FC<BlogListProps> = ({ posts }) => {
+
+  useEffect(() => {
+    console.log('posts:', posts);
+  }, []);
+
+  const [search, setSearch] = useState('');
+
+  useEffect(() => {
+    console.log(filteredPosts);
+  }, [search])
+
+  const filteredPosts = posts.filter(post =>
+    post.title.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <section>
-      <ul className="">
-        {posts.map((post) => {
-          console.log(post)
+      
+      <input
+        type="text"
+        placeholder="Search posts..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+      
+      <div>
+      {filteredPosts.map((post) => {
           if (!post.isPublished) {
             return;
           }
           return <Post key={post.id} post={post} />;
         })}
-      </ul>
+      </div>
     </section>
   );
 }
+
+export default Posts;
