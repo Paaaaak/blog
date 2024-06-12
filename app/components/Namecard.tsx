@@ -16,7 +16,7 @@ const Namecard = () => {
     <div className="circle-core" >
       {/* <img src='https://via.placeholder.com/140x140' alt='selfie'></img> */}
       
-      <Image src={Jaehyeon} alt="Jaehyeon" height={140} />
+      {/* <Image src={Jaehyeon} alt="Jaehyeon" height={140} /> */}
     </div>
   </div>
   <div className='name-card-introduction'>

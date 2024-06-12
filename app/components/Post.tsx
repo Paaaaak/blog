@@ -11,25 +11,27 @@ export default function Post({ post }: Props) {
   const formattedDate = getFormattedDate(date);
 
   return (
-    <div className="post-container dark">
-      <div className="post-thumb-nail">
-        <img src={backgroundImage}></img>
-      </div>
+    <div className="post">
+      <img
+        className="post__image"
+        src={backgroundImage}
+        alt="Post Background"
+      ></img>
       <Link href={`/post/${id}`}>
-        <div className="post-body">
-          <ul className="post-tags">
+        <div className="post__body">
+          <ul className="post__tags">
             {tags.map((tag) => (
-              <li key={tag}>
-                <div className="post-badge">{tag}</div>
+              <li className="post__tag-item" key={tag}>
+                <div className="post__badge">{tag}</div>
               </li>
             ))}
-            {/* <img src={logoImage} alt='logo' style={{ borderRadius: '50%', width: '25px', height: '25px'}}></img> */}
+            {/* <img src={logoImage} alt='logo' className="post__logo" /> */}
           </ul>
-          <div className="post-title">
+          <div className="post__title">
             <h3>{title}</h3>
           </div>
-          <div className='post-text'>{subtitle}</div>
-          <div className="post-date">{formattedDate}</div>
+          <div className="post__subtitle">{subtitle}</div>
+          <div className="post__date">{formattedDate}</div>
         </div>
       </Link>
     </div>
