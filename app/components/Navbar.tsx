@@ -62,12 +62,12 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="header__burger-menu-item">
-            <Link href="/tags">
+            <Link href="/posts">
               Posts
             </Link>
           </li>
           <li className="header__burger-menu-item">
-            <Link href="/">
+            <Link href="/about">
               About
             </Link>
           </li>

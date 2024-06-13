@@ -3,6 +3,7 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Jaehyeon from '@/public/images/jaehyeon.png';
+import Profile from '@/public/images/profile.jpg';
 import Image from 'next/image';
 
 const Namecard = () => {
@@ -16,7 +17,7 @@ const Namecard = () => {
     <div className="circle-core" >
       {/* <img src='https://via.placeholder.com/140x140' alt='selfie'></img> */}
       
-      {/* <Image src={Jaehyeon} alt="Jaehyeon" height={140} /> */}
+      <Image src={Profile} alt="Jaehyeon" width={140} height={140} />
     </div>
   </div>
   <div className='name-card-introduction'>
