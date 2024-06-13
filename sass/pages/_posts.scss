@@ -1,0 +1,22 @@
+.posts-search {
+  position: relative;
+  border-radius: 10px;
+  border: 1px solid white;
+
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  padding: 20px;
+
+  min-width: 500px;
+}
+
+.posts__hashtag {
+  background-color: rebeccapurple;
+}
+
+.posts__hashtag.active {
+  background-color: rgba(189, 59, 59, 0.247);
+}
