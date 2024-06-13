@@ -28,7 +28,7 @@ export default function Post({ post }: Props) {
             {/* <img src={logoImage} alt='logo' className="post__logo" /> */}
           </ul>
           <div className="post__title">
-            <h3>{title}</h3>
+            <h2>{title}</h2>
           </div>
           <div className="post__subtitle">{subtitle}</div>
           <div className="post__date">{formattedDate}</div>
