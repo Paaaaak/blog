@@ -8,7 +8,6 @@ export default function Home() {
       <Namecard></Namecard>
       <h2 style={{ paddingLeft: '25px', margin: '30px 0', color: 'rgb(170, 170, 170)' }}>Recently published</h2>
 
-
       <RecentPosts></RecentPosts>
 
       <div className="common-button-container">

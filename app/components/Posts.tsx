@@ -10,24 +10,29 @@ interface BlogListProps {
 
 const Posts: React.FC<BlogListProps> = ({ posts }) => {
   const [search, setSearch] = useState("");
-  const [tags, setTags] = useState<string[]>([]);
+  const [tags, setTags] = useState<Map<string, number>>(
+    new Map<string, number>()
+  );
 
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
   useEffect(() => {
-    console.log(filteredPosts);
-  }, [search]);
+    const tagsMap = new Map<string, number>();
 
-  useEffect(() => {
-    console.log(posts);
     let tags: string[] = [];
     posts.map((post) => {
       tags = tags.concat(post.tags);
     });
-    const uniqueTags = Array.from(new Set(tags));
-    console.log("tags:", uniqueTags);
 
-    setTags(uniqueTags);
+    tags.forEach((tag) => {
+      if (tagsMap.has(tag)) {
+        tagsMap.set(tag, tagsMap.get(tag)! + 1);
+      } else {
+        tagsMap.set(tag, 1);
+      }
+    });
+
+    setTags(tagsMap);
   }, []);
 
   const filteredPosts = posts.filter((post) => {
@@ -42,8 +47,6 @@ const Posts: React.FC<BlogListProps> = ({ posts }) => {
   });
 
   const tagClickHandler = (tag: string) => {
-    console.log(tag);
-
     if (selectedTags.includes(tag)) {
       setSelectedTags(selectedTags.filter((e) => e !== tag));
     } else {
@@ -54,7 +57,6 @@ const Posts: React.FC<BlogListProps> = ({ posts }) => {
   return (
     <section>
       <div className="posts-search">
-
         <div className="card">
           <label className="input">
             <input
@@ -69,36 +71,42 @@ const Posts: React.FC<BlogListProps> = ({ posts }) => {
           <SearchIcon></SearchIcon>
         </div>
 
-        <h3>Filter with tag</h3>
+        <h2>Filter with tag</h2>
         <ul>
-          {tags.map((tag) => {
-            return (
-              <li key={tag} onClick={() => tagClickHandler(tag)}>
-                <div
-                  className={`posts__hashtag ${
-                    selectedTags.includes(tag) ? "active" : ""
-                  }`}
-                >
-                  <span>{tag}</span>
-                  <span>0</span>
-                </div>
-              </li>
-            );
-          })}
+          {[...tags.entries()].map(([tag, count]) => (
+            <li key={tag} onClick={() => tagClickHandler(tag)}>
+              <div
+                className={`posts__hashtag ${
+                  selectedTags.includes(tag) ? "active" : ""
+                }`}
+              >
+                <span>{tag}</span>
+                <span>{count}</span>
+              </div>
+            </li>
+          ))}
         </ul>
       </div>
 
+      <h2
+        style={{
+          paddingLeft: "25px",
+          margin: "30px 0",
+          color: "rgb(170, 170, 170)",
+        }}
+      >
+        {filteredPosts.length === 0
+          ? `No posts found.`
+          : `There are ${filteredPosts.length} total posts.`}
+      </h2>
+
       <div>
-        {filteredPosts.length === 0 ? (
-          <p>No posts found.</p>
-        ) : (
-          filteredPosts.map((post) => {
-            if (!post.isPublished) {
-              return;
-            }
-            return <Post key={post.id} post={post} />;
-          })
-        )}
+        {filteredPosts.map((post) => {
+          if (!post.isPublished) {
+            return;
+          }
+          return <Post key={post.id} post={post} />;
+        })}
       </div>
     </section>
   );

@@ -1,24 +1,18 @@
 .posts-search {
   position: relative;
   border-radius: 10px;
-  border: 1px solid white;
-
   width: 100%;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
   margin-bottom: 40px;
   padding: 20px;
-
   min-width: 350px;
+  background-color: rgba(133, 133, 133, 0.301);
 }
 
-.posts__hashtag {
-  background-color: rebeccapurple;
-}
-
-.posts__hashtag.active {
-  background-color: rgba(189, 59, 59, 0.247);
+.posts-search h2 {
+  margin-top: 20px;
 }
 
 .card {
@@ -29,6 +23,7 @@
   color: rgb(160, 160, 160);
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 .input {
@@ -57,7 +52,7 @@
         transform: translate(.25rem, -75%) scale(0.9);
         color: $light-green;
         font-weight: bold;
-        background-color: #212529;
+        background-color: #3F4245;
       }
     }
   }
@@ -72,4 +67,31 @@
       outline: none;
     }
   }
+}
+
+.posts-search ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  li {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+}
+
+.posts__hashtag {
+  border-radius: 6px;
+  border: 1px solid $dark-green;
+  padding: 4px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.posts__hashtag.active {
+  background-color: $dark-green;
+}
+
+.posts__hashtag span:nth-child(2) {
+  margin: 0 5px;
 }
