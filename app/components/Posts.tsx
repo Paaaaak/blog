@@ -2,6 +2,7 @@
 
 import Post from "./Post";
 import { useState, useEffect, MouseEvent } from "react";
+import SearchIcon from "@mui/icons-material/Search";
 
 interface BlogListProps {
   posts: BlogPost[];
@@ -53,12 +54,21 @@ const Posts: React.FC<BlogListProps> = ({ posts }) => {
   return (
     <section>
       <div className="posts-search">
-        <input
-          type="text"
-          placeholder="Search posts..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
+
+        <div className="card">
+          <label className="input">
+            <input
+              className="input__field"
+              type="text"
+              placeholder=""
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+            <span className="input__label">Search By Title</span>
+          </label>
+          <SearchIcon></SearchIcon>
+        </div>
+
         <h3>Filter with tag</h3>
         <ul>
           {tags.map((tag) => {
