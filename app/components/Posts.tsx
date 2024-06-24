@@ -30,12 +30,15 @@ const Posts: React.FC<BlogListProps> = ({ posts }) => {
   }, []);
 
   const filteredPosts = posts.filter((post) => {
-    const titleMatches = post.title.toLowerCase().includes(search.toLowerCase());
-    const tagMatches = selectedTags.length === 0 || post.tags.some(tag => selectedTags.includes(tag));
-  
+    const titleMatches = post.title
+      .toLowerCase()
+      .includes(search.toLowerCase());
+    const tagMatches =
+      selectedTags.length === 0 ||
+      post.tags.some((tag) => selectedTags.includes(tag));
+
     return titleMatches && tagMatches;
   });
-  
 
   const tagClickHandler = (tag: string) => {
     console.log(tag);
@@ -49,7 +52,6 @@ const Posts: React.FC<BlogListProps> = ({ posts }) => {
 
   return (
     <section>
-
       <div className="posts-search">
         <input
           type="text"
@@ -62,7 +64,11 @@ const Posts: React.FC<BlogListProps> = ({ posts }) => {
           {tags.map((tag) => {
             return (
               <li key={tag} onClick={() => tagClickHandler(tag)}>
-                <div className={`posts__hashtag ${selectedTags.includes(tag) ? 'active' : ''}`}>
+                <div
+                  className={`posts__hashtag ${
+                    selectedTags.includes(tag) ? "active" : ""
+                  }`}
+                >
                   <span>{tag}</span>
                   <span>0</span>
                 </div>
@@ -73,12 +79,16 @@ const Posts: React.FC<BlogListProps> = ({ posts }) => {
       </div>
 
       <div>
-        {filteredPosts.map((post) => {
-          if (!post.isPublished) {
-            return;
-          }
-          return <Post key={post.id} post={post} />;
-        })}
+        {filteredPosts.length === 0 ? (
+          <p>No posts found.</p>
+        ) : (
+          filteredPosts.map((post) => {
+            if (!post.isPublished) {
+              return;
+            }
+            return <Post key={post.id} post={post} />;
+          })
+        )}
       </div>
     </section>
   );
