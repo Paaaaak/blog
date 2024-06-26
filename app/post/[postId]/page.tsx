@@ -4,10 +4,11 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Highlight from "@/app/components/Highlight";
+import Background from "@/app/components/Background";
 
 const components = {
-  Highlight
-}
+  Highlight,
+};
 
 export function generateStaticParams() {
   const posts = getSortedPostsData();
@@ -46,14 +47,17 @@ export default async function Post({ params }: { params: { postId: string } }) {
 
   return (
     <main className="main">
-      <h1 className="">{title}</h1>
-      <p className="">{pubDate}</p>
-      <article>
-        <MDXRemote source={content} components={components}></MDXRemote>
-        <p>
-          <Link href="/">← Back to home</Link>
-        </p>
-      </article>
+      <Background></Background>
+      <div className="main-div">
+        <h1 className="">{title}</h1>
+        <p className="">{pubDate}</p>
+        <article>
+          <MDXRemote source={content} components={components}></MDXRemote>
+          <p>
+            <Link href="/">← Back to home</Link>
+          </p>
+        </article>
+      </div>
     </main>
   );
 }
