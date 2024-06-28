@@ -1,12 +1,14 @@
-header {
+.header-div {
     position: relative;
     width: 100%;
-    height: 40vw;
+    height: 40vh;
+    min-height: 350px;
     background: black;
     display: flex;
     align-items: center;
     justify-content: center;
     max-height: 500px;
+    margin-bottom: 4rem;
 }
 
 @keyframes filling {

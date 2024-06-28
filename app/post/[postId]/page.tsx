@@ -47,7 +47,7 @@ export default async function Post({ params }: { params: { postId: string } }) {
 
   return (
     <main className="main">
-      <Background></Background>
+      <Background pageType="posts"></Background>
       <div className="main-div">
         <h1 className="">{title}</h1>
         <p className="">{pubDate}</p>

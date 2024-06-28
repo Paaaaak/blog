@@ -8,7 +8,7 @@ const page = () => {
 
   return (
     <main className="main">
-      <Background></Background>
+      <Background pageType="posts"></Background>
       <div className="main-div">
         <Posts posts={posts}></Posts>
       </div>

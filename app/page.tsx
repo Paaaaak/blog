@@ -6,7 +6,7 @@ import Background from "./components/Background";
 export default function Home() {
   return (
     <main className="main">
-      <Background></Background>
+      <Background pageType="main"></Background>
 
       <div className="main-div">
         <Namecard></Namecard>
