@@ -83,9 +83,12 @@
 .posts__hashtag {
   border-radius: 6px;
   border: 1px solid $dark-green;
-  padding: 4px;
+  padding: 4px 4px 4px 8px;
   background-color: transparent;
   cursor: pointer;
+  &:hover {
+    background-color: $light-green;
+  }
 }
 
 .posts__hashtag.active {
