@@ -5,6 +5,7 @@ import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Highlight from "@/app/components/Highlight";
 import Background from "@/app/components/Background";
+import React, { useEffect } from "react";
 
 const components = {
   Highlight,
@@ -32,6 +33,7 @@ export function generateMetadata({ params }: { params: { postId: string } }) {
 
   return {
     title: post.title,
+    description: post.subtitle,
   };
 }
 
@@ -42,7 +44,6 @@ export default async function Post({ params }: { params: { postId: string } }) {
   if (!posts.find((post) => post.id === postId)) notFound();
 
   const { title, date, content } = await getPostData(postId);
-
   const pubDate = getFormattedDate(date);
 
   return (

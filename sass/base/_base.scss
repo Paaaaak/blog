@@ -26,7 +26,7 @@ body {
     position: relative;
   }
   .common-button:hover {
-    background-color: #30834d91;
+    background-color: $light-green;
     .arrow {
       right: 25px;
     }
@@ -38,7 +38,7 @@ body {
   
   .arrow {
     position: absolute;
-    top: 24px;
+    top: 22px;
     right: 30px;
     width: 8%;
     height: 2px;

@@ -3,6 +3,12 @@ import Namecard from "./components/Namecard";
 import Link from "next/link";
 import Background from "./components/Background";
 
+export const metadata = {
+  title: "Jaehyeon's Blog asdasd",
+  description: "Created by Dave Gray",
+  keywords: "nextjs, seo, metadata",
+};
+
 export default function Home() {
   return (
     <main className="main">

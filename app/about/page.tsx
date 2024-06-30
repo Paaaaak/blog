@@ -1,6 +1,12 @@
 import React from "react";
 import Background from "../components/Background";
 
+export const metadata = {
+  title: "Jaehyeon's Blog asdasd",
+  description: "Created by Dave Gray",
+  keywords: "nextjs, seo, metadata",
+};
+
 const page = () => {
   return (
     <main className="main">

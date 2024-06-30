@@ -34,7 +34,8 @@ export function getSortedPostsData() {
     return blogPost;
   });
   // Sort posts by date
-  return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
+  allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
+  return allPostsData.filter(post => post.isPublished);
 }
 
 export async function getPostData(id: string) {
