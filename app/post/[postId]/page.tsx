@@ -52,15 +52,13 @@ export default async function Post({ params }: { params: { postId: string } }) {
 
   if (!posts.find((post) => post.id === postId)) notFound();
 
-  const { title, date, backgroundImage, content } = await getPostData(postId);
+  const { title, subtitle, date, backgroundImage, content } = await getPostData(postId);
   const pubDate = getFormattedDate(date);
 
   return (
     <main className="main">
-      <Background pageType="posts" backgroundImage={backgroundImage}></Background>
+      <Background pageTitle={title} pageSubtitle={subtitle} pageType="posts" backgroundImage={backgroundImage}></Background>
       <div className="main-div">
-        <h1 className="">{title}</h1>
-        <p className="">{pubDate}</p>
         <MDXRemote source={content} components={components}></MDXRemote>
         <Link href="/">← Back to home</Link>
       </div>
