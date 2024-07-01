@@ -9,6 +9,7 @@
     justify-content: center;
     max-height: 500px;
     margin-bottom: 4rem;
+    animation: filling 3s ease forwards;
 }
 
 @keyframes filling {
@@ -24,7 +25,6 @@
 .header-text {
     width: 100%;
     height: 100%;
-    animation: filling 3s ease forwards;
 }
 .header-title {
     width: 641px;

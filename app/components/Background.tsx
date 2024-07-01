@@ -46,14 +46,16 @@ const Background: React.FC<HeaderProps> = ({
   }, []);
 
   return (
-    <div className="header-div">
+    <div className="header-div" style={{ backgroundImage: `url(${background})` }}>
       <div
         className="header-text"
-        style={{ backgroundImage: `url(${background})` }}
+        style={{ background: 'rgba(0, 0, 0, 0.5)' }}
       >
         <div className={`header-title ${pageType === "post" && "post"}`}>
           <span>{title}</span>
           <span>{subtitle}</span>
+          {/* <span>{timetoread}</span>
+          <span>{tags}</span> */}
         </div>
       </div>
     </div>
