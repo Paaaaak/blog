@@ -6,7 +6,7 @@ interface HighlightProps {
 }
 
 const Highlight: React.FC<HighlightProps> = ({ children }) => {
-  return <div style={{ backgroundColor: 'yellow', height: '100px' }}>{children}</div>;
+  return <span style={{ background: 'yellow' }}>{children}</span>;
 };
 
 export default Highlight;

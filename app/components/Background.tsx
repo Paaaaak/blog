@@ -26,21 +26,21 @@ interface HeaderProps {
   pageTitle?: string;
   pageSubtitle?: string;
   pageType: string;
-  singlePostBackground?: string;
+  backgroundImage?: string;
 }
 
 const Background: React.FC<HeaderProps> = ({
   pageTitle,
   pageSubtitle,
   pageType,
-  singlePostBackground,
+  backgroundImage,
 }) => {
   const [background, setBackground] = useState<string | null>(null);
   const [title, setTitle] = useState<string | null>(null);
   const [subtitle, setSubtitle] = useState<string | null>(null);
 
   useEffect(() => {
-    setBackground(singlePostBackground || imageUrl[pageType]);
+    setBackground(backgroundImage || imageUrl[pageType]);
     setTitle(pageTitle ? pageTitle : titles[pageType]);
     setSubtitle(pageSubtitle ? pageSubtitle : subtitles[pageType]);
   }, []);

@@ -3,11 +3,20 @@ import { getSortedPostsData, getPostData } from "@/lib/posts";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import Highlight from "@/app/components/Highlight";
 import Background from "@/app/components/Background";
 import React, { useEffect } from "react";
 
+import Highlight from "@/app/components/mdx/Highlight";
+import CustomUl from "@/app/components/mdx/CustomUl";
+import CustomLi from "@/app/components/mdx/CustomLi";
+import CustomP from "@/app/components/mdx/CustomP";
+import CustomH1 from "@/app/components/mdx/CustomH1";
+
 const components = {
+  h1: CustomH1,
+  p: CustomP,
+  ul: CustomUl,
+  li: CustomLi,
   Highlight,
 };
 
@@ -43,21 +52,17 @@ export default async function Post({ params }: { params: { postId: string } }) {
 
   if (!posts.find((post) => post.id === postId)) notFound();
 
-  const { title, date, content } = await getPostData(postId);
+  const { title, date, backgroundImage, content } = await getPostData(postId);
   const pubDate = getFormattedDate(date);
 
   return (
     <main className="main">
-      <Background pageType="posts"></Background>
+      <Background pageType="posts" backgroundImage={backgroundImage}></Background>
       <div className="main-div">
         <h1 className="">{title}</h1>
         <p className="">{pubDate}</p>
-        <article>
-          <MDXRemote source={content} components={components}></MDXRemote>
-          <p>
-            <Link href="/">← Back to home</Link>
-          </p>
-        </article>
+        <MDXRemote source={content} components={components}></MDXRemote>
+        <Link href="/">← Back to home</Link>
       </div>
     </main>
   );
