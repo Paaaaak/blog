@@ -54,8 +54,6 @@ const Background: React.FC<HeaderProps> = ({
         <div className={`header-title ${pageType === "post" && "post"}`}>
           <span>{title}</span>
           <span>{subtitle}</span>
-          {/* <span>{timetoread}</span>
-          <span>{tags}</span> */}
         </div>
       </div>
     </div>

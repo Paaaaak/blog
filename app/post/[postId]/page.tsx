@@ -11,6 +11,7 @@ import CustomUl from "@/app/components/mdx/CustomUl";
 import CustomLi from "@/app/components/mdx/CustomLi";
 import CustomP from "@/app/components/mdx/CustomP";
 import CustomH1 from "@/app/components/mdx/CustomH1";
+import { getReadingTime } from "@/lib/getReadingTime";
 
 const components = {
   h1: CustomH1,
@@ -52,13 +53,18 @@ export default async function Post({ params }: { params: { postId: string } }) {
 
   if (!posts.find((post) => post.id === postId)) notFound();
 
-  const { title, subtitle, date, backgroundImage, content } = await getPostData(postId);
+  const { title, subtitle, date, tags, backgroundImage, content } = await getPostData(postId);
+  console.log(await getPostData(postId));
   const pubDate = getFormattedDate(date);
+  const readingTime = getReadingTime(content);
 
   return (
     <main className="main">
       <Background pageTitle={title} pageSubtitle={subtitle} pageType="posts" backgroundImage={backgroundImage}></Background>
       <div className="main-div">
+        <h1>{pubDate}</h1>
+        <h1>{readingTime}</h1>
+        <h1>{tags}</h1>
         <MDXRemote source={content} components={components}></MDXRemote>
         <Link href="/">← Back to home</Link>
       </div>
