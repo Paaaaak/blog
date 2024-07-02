@@ -12,7 +12,15 @@ const page = () => {
     <main className="main">
       <Background pageType="about"></Background>
       <div className="main-div">
-        <div style={{background: "black", height: "100vh"}}></div>
+        <div style={{background: "black", height: "100vh"}}>
+          <div>
+            <h1>Experience</h1>
+            <div>Nexol System 2022.10 ~ 2023.11</div>
+            <div>Polycube 2023.12 ~ 2024.11</div>
+            <h1>Education</h1>
+            <div>The State University of New York, Stony Brook 2021.03 ~ 2026.12</div>
+          </div>
+        </div>
       </div>
     </main>
   );
