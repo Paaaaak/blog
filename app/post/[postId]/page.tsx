@@ -11,6 +11,7 @@ import CustomUl from "@/app/components/mdx/CustomUl";
 import CustomLi from "@/app/components/mdx/CustomLi";
 import CustomP from "@/app/components/mdx/CustomP";
 import CustomH1 from "@/app/components/mdx/CustomH1";
+import CustomImage from "@/app/components/mdx/CustomImage";
 import { getReadingTime } from "@/lib/getReadingTime";
 
 const components = {
@@ -18,6 +19,7 @@ const components = {
   p: CustomP,
   ul: CustomUl,
   li: CustomLi,
+  CustomImage,
   Highlight,
 };
 
@@ -54,7 +56,6 @@ export default async function Post({ params }: { params: { postId: string } }) {
   if (!posts.find((post) => post.id === postId)) notFound();
 
   const { title, subtitle, date, tags, backgroundImage, content } = await getPostData(postId);
-  console.log(await getPostData(postId));
   const pubDate = getFormattedDate(date);
   const readingTime = getReadingTime(content);
 
