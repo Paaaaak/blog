@@ -3,7 +3,7 @@ import { getSortedPostsData, getPostData } from "@/lib/posts";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import Background from "@/app/components/Background";
+import PostBackground from "@/app/components/PostBackground";
 import React, { useEffect } from "react";
 
 import Highlight from "@/app/components/mdx/Highlight";
@@ -55,18 +55,13 @@ export default async function Post({ params }: { params: { postId: string } }) {
 
   if (!posts.find((post) => post.id === postId)) notFound();
 
-  const { title, subtitle, date, tags, backgroundImage, content } = await getPostData(postId);
-  const pubDate = getFormattedDate(date);
-  const readingTime = getReadingTime(content);
+  const postInfo = await getPostData(postId);
 
   return (
     <main className="main">
-      <Background pageTitle={title} pageSubtitle={subtitle} pageType="posts" backgroundImage={backgroundImage}></Background>
+      <PostBackground postInfo={postInfo}></PostBackground>
       <div className="main-div">
-        <h1>{pubDate}</h1>
-        <h1>{readingTime}</h1>
-        <h1>{tags}</h1>
-        <MDXRemote source={content} components={components}></MDXRemote>
+        <MDXRemote source={postInfo.content} components={components}></MDXRemote>
         <Link href="/">← Back to home</Link>
       </div>
     </main>

@@ -7,7 +7,7 @@ export default function RecentPosts() {
 
   return (
     <section>
-      <ul className="">
+      <ul>
         {recentPosts.map((post) => {
           if (!post.isPublished) {
             return;

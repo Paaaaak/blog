@@ -23,6 +23,7 @@ const CustomImage: React.FC<CustomImageProps> = ({
       width={width}
       height={height}
       layout="responsive"
+      style={{ borderRadius: '10px' }}
     />
     <span>{caption}</span>
   </div>

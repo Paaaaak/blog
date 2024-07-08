@@ -2,6 +2,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import '@/sass/main.scss';
 import Navbar from "./components/Navbar";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 export const metadata = {
   title: "Frontend Blog",
@@ -45,10 +47,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Suspense fallback={ <Loading></Loading>}>
+          
         <Navbar></Navbar>
         {/* <Header pageType="main"></Header> */}
-        {children}
+        <Suspense fallback={ <Loading></Loading> }>
+          {children}
+        </Suspense>
         <Footer></Footer>
+        </Suspense>
       </body>
     </html>
   );
