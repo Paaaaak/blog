@@ -38,11 +38,6 @@ export function getSortedPostsData() {
 export async function getPostData(id: string) {
   const fullPath = path.join(postsDirectory, id, 'index.mdx');
   const fileContents = fs.readFileSync(fullPath, "utf8");
-
-
-  // Use gray-matter to parse the post metadata section
-  const matterResult = matter(fileContents);
-
   
   const { data: frontmatter, content } = matter(fileContents);
   console.log(frontmatter, content);
