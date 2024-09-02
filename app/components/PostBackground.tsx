@@ -34,10 +34,10 @@ const PostBackground: React.FC<HeaderProps> = ({ postInfo }) => {
           <div className="post-background__subtitle">{postInfo.subtitle}</div>
           <div className="post-background__info">
             <span className="post-background__date">
-              Published date: {pubDate}
+              Date: {pubDate}
             </span>
             <span className="post-background__reading-time">
-              Reading time: {readingTime}
+              Time: {readingTime}
             </span>
             <ul className="post-background__tags">
               {postInfo.tags.map((tag) => (
