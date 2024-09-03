@@ -11,6 +11,19 @@ export const metadata = {
   keywords: "nextjs, seo, metadata",
 };
 
+/**
+ * `Home` - A Server Component in Next.js
+ *
+ * This component is a Server Component by default since it resides within the `app` directory in a Next.js 13+ project.
+ * Server Components are rendered on the server, providing better performance, SEO, and reduced client-side JavaScript.
+ *
+ * - **No Client-Side JavaScript**: Renders only HTML and CSS, minimizing the bundle size.
+ * - **Data Fetching**: Supports secure server-side data fetching.
+ * - **No Browser APIs**: Cannot use browser-specific APIs like `window` or `document`.
+ * - **SEO Benefits**: Improves SEO with fully server-rendered HTML content.
+ * 
+ * To enable client-side interactivity, add `'use client'` at the top of the file.
+ */
 export default function Home() {
   return (
     <main className="main">
