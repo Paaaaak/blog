@@ -2,8 +2,6 @@ import RecentPosts from "./components/RecentPosts";
 import Namecard from "./components/Namecard";
 import Link from "next/link";
 import Background from "./components/Background";
-import { Suspense } from "react";
-import Loading from "./loading";
 
 export const metadata = {
   title: "Jaehyeon's Blog asdasd",
@@ -27,8 +25,7 @@ export const metadata = {
 export default function Home() {
   return (
     <main className="main">
-      <Suspense fallback={<Loading></Loading>}>
-        <Background pageType="main"></Background>
+      <Background pageType="main"></Background>
         <div className="main-div">
           <Namecard></Namecard>
           <h2
@@ -50,7 +47,6 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </Suspense>
     </main>
   );
 }
