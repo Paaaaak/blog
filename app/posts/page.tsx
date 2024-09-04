@@ -1,7 +1,7 @@
 import { getSortedPostsData } from "@/lib/posts";
 import React, { Suspense } from "react";
-import Posts from "../components/Posts";
-import Background from "../components/Background";
+import Posts from "../../components/Posts";
+import Background from "../../components/Background";
 import Loading from "../loading";
 
 export const metadata = {
@@ -15,7 +15,7 @@ const page = () => {
 
   return (
     <main className="main">
-      <Suspense fallback={ <Loading></Loading> }>
+      <Suspense fallback={<Loading></Loading>}>
         <Background pageType="posts"></Background>
         <div className="main-div">
           <Posts posts={posts}></Posts>

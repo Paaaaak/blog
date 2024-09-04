@@ -3,15 +3,15 @@ import { getSortedPostsData, getPostData } from "@/lib/posts";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import PostBackground from "@/app/components/PostBackground";
+import PostBackground from "@/components/PostBackground";
 import React, { useEffect } from "react";
 
-import Highlight from "@/app/components/mdx/Highlight";
-import CustomUl from "@/app/components/mdx/CustomUl";
-import CustomLi from "@/app/components/mdx/CustomLi";
-import CustomP from "@/app/components/mdx/CustomP";
-import CustomH1 from "@/app/components/mdx/CustomH1";
-import CustomImage from "@/app/components/mdx/CustomImage";
+import Highlight from "@/components/mdx/Highlight";
+import CustomUl from "@/components/mdx/CustomUl";
+import CustomLi from "@/components/mdx/CustomLi";
+import CustomP from "@/components/mdx/CustomP";
+import CustomH1 from "@/components/mdx/CustomH1";
+import CustomImage from "@/components/mdx/CustomImage";
 import { getReadingTime } from "@/lib/getReadingTime";
 
 const components = {
@@ -61,7 +61,10 @@ export default async function Post({ params }: { params: { postId: string } }) {
     <main className="main">
       <PostBackground postInfo={postInfo}></PostBackground>
       <div className="main-div">
-        <MDXRemote source={postInfo.content} components={components}></MDXRemote>
+        <MDXRemote
+          source={postInfo.content}
+          components={components}
+        ></MDXRemote>
         <Link href="/">← Back to home</Link>
       </div>
     </main>
