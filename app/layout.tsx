@@ -48,6 +48,11 @@ export const metadata = {
   },
 };
 
+/**
+ * layout.js is not supposed to be imported in any components.
+ * Next.js will automatically look to see if this file exist and if it does,
+ * it will work as a layout/wrapper to any active route.
+ */
 export default function RootLayout({
   children,
 }: {
