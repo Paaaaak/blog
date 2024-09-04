@@ -1,10 +1,19 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import '@/sass/main.scss';
+import "@/sass/main.scss";
 import Navbar from "./components/Navbar";
 import { Suspense } from "react";
 import Loading from "./loading";
 
+/**
+ * Metadata for Next.js pages.
+ *
+ * Head tag is populated in different ways in Next.js by exporting metadata.
+ * The `metadata` object in Next.js allows you to define various metadata properties
+ * for a specific page or layout. This metadata includes information such as the page title,
+ * description, open graph details, Twitter card details, and other SEO-related elements.
+ * By setting metadata, you can improve the SEO and social media presence of your web pages.
+ */
 export const metadata = {
   title: "Frontend Blog",
   description: "This is the description of my page",
@@ -47,14 +56,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Suspense fallback={ <Loading></Loading>}>
-          
-        <Navbar></Navbar>
-        {/* <Header pageType="main"></Header> */}
-        <Suspense fallback={ <Loading></Loading> }>
-          {children}
-        </Suspense>
-        <Footer></Footer>
+        <Suspense fallback={<Loading></Loading>}>
+          <Navbar></Navbar>
+          {/* <Header pageType="main"></Header> */}
+          <Suspense fallback={<Loading></Loading>}>{children}</Suspense>
+          <Footer></Footer>
         </Suspense>
       </body>
     </html>
