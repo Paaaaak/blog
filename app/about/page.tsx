@@ -10,9 +10,11 @@ export const metadata = {
 
 const page = () => {
   return (
-    <main className="main">
-      <Suspense fallback={<Loading></Loading>}>
+    <>
+      <header>
         <Background pageType="about"></Background>
+      </header>
+      <main className="main">
         <div className="main-div">
           <div style={{ background: "black", height: "100vh" }}>
             <div>
@@ -26,8 +28,8 @@ const page = () => {
             </div>
           </div>
         </div>
-      </Suspense>
-    </main>
+      </main>
+    </>
   );
 };
 

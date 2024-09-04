@@ -14,14 +14,16 @@ const page = () => {
   const posts = getSortedPostsData();
 
   return (
-    <main className="main">
-      <Suspense fallback={<Loading></Loading>}>
+    <>
+      <header>
         <Background pageType="posts"></Background>
+      </header>
+      <main className="main">
         <div className="main-div">
           <Posts posts={posts}></Posts>
         </div>
-      </Suspense>
-    </main>
+      </main>
+    </>
   );
 };
 

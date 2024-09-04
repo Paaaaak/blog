@@ -58,15 +58,19 @@ export default async function Post({ params }: { params: { postId: string } }) {
   const postInfo = await getPostData(postId);
 
   return (
-    <main className="main">
-      <PostBackground postInfo={postInfo}></PostBackground>
-      <div className="main-div">
-        <MDXRemote
-          source={postInfo.content}
-          components={components}
-        ></MDXRemote>
-        <Link href="/">← Back to home</Link>
-      </div>
-    </main>
+    <>
+      <header>
+        <PostBackground postInfo={postInfo}></PostBackground>
+      </header>
+      <main className="main">
+        <div className="main-div">
+          <MDXRemote
+            source={postInfo.content}
+            components={components}
+          ></MDXRemote>
+          <Link href="/">← Back to home</Link>
+        </div>
+      </main>
+    </>
   );
 }
