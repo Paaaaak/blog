@@ -19,7 +19,7 @@ export const metadata = {
   description: "This is the description of my page",
   keywords: "nextjs, seo, metadata",
   author: "Jaehyeon",
-  viewport: "width=device-width, initial-scale=1",
+  // viewport: "width=device-width, initial-scale=1",
   robots: "index, follow",
   charset: "UTF-8",
   canonical: "https://www.example.com/",
@@ -35,7 +35,7 @@ export const metadata = {
     description: "This is the description of my page",
     image: "https://www.example.com/image.jpg",
   },
-  themeColor: "#317EFB",
+  // themeColor: "#317EFB",
   icon: "/favicon.ico",
   appleTouchIcon: "/apple-touch-icon.png",
   manifest: "/site.webmanifest",
@@ -61,12 +61,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Suspense fallback={<Loading></Loading>}>
-          <Navbar></Navbar>
-          {/* <Header pageType="main"></Header> */}
-          <Suspense fallback={<Loading></Loading>}>{children}</Suspense>
-          <Footer></Footer>
-        </Suspense>
+        <Navbar></Navbar>
+        {children}
+        <Footer></Footer>
       </body>
     </html>
   );

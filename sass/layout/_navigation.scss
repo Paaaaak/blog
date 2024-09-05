@@ -60,6 +60,10 @@
             color: $secondary-color;
         }
     }
+    
+    .active {
+        background-color: rebeccapurple;
+    }
 }
 
 @media only screen and (max-width: 1000px) {

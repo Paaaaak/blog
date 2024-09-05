@@ -4,12 +4,15 @@ import React from "react";
 import Menu from "@mui/icons-material/Menu";
 import MenuOpen from "@mui/icons-material/MenuOpen";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
-    const [isOpen, setIsOpen] = React.useState(false);
-    const toggleMenu = () => {
-      setIsOpen(!isOpen);
-    };
+  const [isOpen, setIsOpen] = React.useState(false);
+  const path = usePathname();
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div className="header">
       <nav className="header__nav">
@@ -21,19 +24,13 @@ const Navbar = () => {
         <div className="header__menu-container">
           <ul className="header__menu-list">
             <li className="header__menu-item">
-              <Link href="/">
-                Home
-              </Link>
+              <Link href="/" className={path === '/' ? 'active' : ''}>Home</Link>
             </li>
             <li className="header__menu-item">
-              <Link href="/posts">
-                Posts
-              </Link>
+              <Link href="/posts" className={path.startsWith('/posts') ? 'active' : ''}>Posts</Link>
             </li>
             <li className="header__menu-item">
-              <Link href="/about">
-                About
-              </Link>
+              <Link href="/about" className={path.startsWith('/about') ? 'active' : ''}>About</Link>
             </li>
           </ul>
           <div
@@ -42,11 +39,7 @@ const Navbar = () => {
             }`}
             onClick={toggleMenu}
           >
-            {isOpen ? (
-              <MenuOpen></MenuOpen>
-            ) : (
-              <Menu></Menu>
-            )}
+            {isOpen ? <MenuOpen></MenuOpen> : <Menu></Menu>}
           </div>
         </div>
       </nav>
@@ -57,19 +50,13 @@ const Navbar = () => {
       >
         <ul className="header__burger-menu-list">
           <li className="header__burger-menu-item">
-            <Link href="/">
-              Home
-            </Link>
+            <Link href="/">Home</Link>
           </li>
           <li className="header__burger-menu-item">
-            <Link href="/posts">
-              Posts
-            </Link>
+            <Link href="/posts">Posts</Link>
           </li>
           <li className="header__burger-menu-item">
-            <Link href="/about">
-              About
-            </Link>
+            <Link href="/about">About</Link>
           </li>
         </ul>
       </div>
