@@ -1,9 +1,17 @@
-import React from 'react'
+import React from "react";
+import Background from "../../components/background";
 
 const Loading = () => {
   return (
-    <div style={{ width: '100vw', height: '100vh', background: 'white'}}></div>
-  )
-}
+    <>
+      <header>
+        <Background pageType="posts"></Background>
+      </header>
+      <main className="main">
+        <div className="main-div">page loading...</div>
+      </main>
+    </>
+  );
+};
 
-export default Loading
+export default Loading;

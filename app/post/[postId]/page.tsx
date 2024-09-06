@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import PostBackground from "@/components/post-background";
-import React, { useEffect } from "react";
 
 import Highlight from "@/components/mdx/highlight";
 import CustomUl from "@/components/mdx/custom-ul";
@@ -49,12 +48,21 @@ export function generateMetadata({ params }: { params: { postId: string } }) {
   };
 }
 
+/**
+ * Server components in Next.js are components that are rendered on the server side,
+ * allowing you to fetch data securely on the server without sending the data fetching logic to the client.
+ * By making a server component async, you can use await to handle asynchronous operations directly in the component.
+ *
+ */
 export default async function Post({ params }: { params: { postId: string } }) {
   const posts = getSortedPostsData();
   const { postId } = params;
 
-  if (!posts.find((post) => post.id === postId)) notFound();
+  if (!posts.find((post) => post.id === postId)) {
+    notFound();
+  }
 
+  await new Promise((res) => setTimeout(res, 5000));
   const postInfo = await getPostData(postId);
 
   return (

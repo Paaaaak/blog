@@ -8,7 +8,7 @@ export const metadata = {
   keywords: "nextjs, seo, metadata",
 };
 
-const page = () => {
+const page = async () => {
   return (
     <>
       <header>

@@ -31,15 +31,7 @@ export default function Home() {
       <main className="main">
         <div className="main-div">
           <Namecard></Namecard>
-          <h2
-            style={{
-              paddingLeft: "25px",
-              margin: "30px 0",
-              color: "rgb(170, 170, 170)",
-            }}
-          >
-            Recently published
-          </h2>
+          <h2>Recently published</h2>
           <RecentPosts></RecentPosts>
           <div className="common-button-container">
             <Link href={"/posts"} style={{ textDecoration: "none" }}>
