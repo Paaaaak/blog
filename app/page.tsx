@@ -2,6 +2,7 @@ import RecentPosts from "../components/recent-posts";
 import Namecard from "../components/namecard";
 import Link from "next/link";
 import Background from "../components/background";
+import { Suspense } from "react";
 
 export const metadata = {
   title: "Jaehyeon's Blog asdasd",
@@ -31,8 +32,10 @@ export default function Home() {
       <main className="main">
         <div className="main-div">
           <Namecard></Namecard>
-          <h2>Recently published</h2>
-          <RecentPosts></RecentPosts>
+          <h2 className="main-h2">Recently published</h2>
+          <Suspense fallback={<div>Page is loading...</div>}>
+            <RecentPosts></RecentPosts>
+          </Suspense>
           <div className="common-button-container">
             <Link href={"/posts"} style={{ textDecoration: "none" }}>
               <div className="common-button">

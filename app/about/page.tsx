@@ -1,6 +1,5 @@
 import React, { Suspense } from "react";
 import Background from "../../components/background";
-import Loading from "../loading";
 
 export const metadata = {
   title: "Jaehyeon's Blog asdasd",
@@ -16,17 +15,20 @@ const page = async () => {
       </header>
       <main className="main">
         <div className="main-div">
-          <div style={{ background: "black", height: "100vh" }}>
-            <div>
-              <h1>Experience</h1>
-              <div>Nexol System 2022.10 ~ 2023.11</div>
-              <div>Polycube 2023.12 ~ 2024.11</div>
-              <h1>Education</h1>
+          <Suspense fallback={<div>Page is loading...</div>}>
+            <div style={{ background: "black", height: "100vh" }}>
               <div>
-                The State University of New York, Stony Brook 2021.03 ~ 2026.12
+                <h1>Experience</h1>
+                <div>Nexol System 2022.10 ~ 2023.11</div>
+                <div>Polycube 2023.12 ~ 2024.11</div>
+                <h1>Education</h1>
+                <div>
+                  The State University of New York, Stony Brook 2021.03 ~
+                  2026.12
+                </div>
               </div>
             </div>
-          </div>
+          </Suspense>
         </div>
       </main>
     </>

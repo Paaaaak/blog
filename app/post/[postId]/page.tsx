@@ -62,7 +62,6 @@ export default async function Post({ params }: { params: { postId: string } }) {
     notFound();
   }
 
-  await new Promise((res) => setTimeout(res, 5000));
   const postInfo = await getPostData(postId);
 
   return (

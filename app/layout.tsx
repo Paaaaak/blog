@@ -3,7 +3,6 @@ import Footer from "../components/footer";
 import "@/sass/main.scss";
 import Navbar from "../components/navbar";
 import { Suspense } from "react";
-import Loading from "./loading";
 
 /**
  * Metadata for Next.js pages.
