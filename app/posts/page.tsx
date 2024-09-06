@@ -1,7 +1,7 @@
 import { getSortedPostsData } from "@/lib/posts";
 import React, { Suspense } from "react";
 import Posts from "../../components/Posts";
-import Background from "../../components/Background";
+import Background from "../../components/background";
 import Loading from "../loading";
 
 export const metadata = {

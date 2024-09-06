@@ -3,15 +3,15 @@ import { getSortedPostsData, getPostData } from "@/lib/posts";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import PostBackground from "@/components/PostBackground";
+import PostBackground from "@/components/post-background";
 import React, { useEffect } from "react";
 
-import Highlight from "@/components/mdx/Highlight";
-import CustomUl from "@/components/mdx/CustomUl";
-import CustomLi from "@/components/mdx/CustomLi";
-import CustomP from "@/components/mdx/CustomP";
-import CustomH1 from "@/components/mdx/CustomH1";
-import CustomImage from "@/components/mdx/CustomImage";
+import Highlight from "@/components/mdx/highlight";
+import CustomUl from "@/components/mdx/custom-ul";
+import CustomLi from "@/components/mdx/custom-li";
+import CustomP from "@/components/mdx/custom-p";
+import CustomH1 from "@/components/mdx/custom-h1";
+import CustomImage from "@/components/mdx/custom-image";
 import { getReadingTime } from "@/lib/getReadingTime";
 
 const components = {

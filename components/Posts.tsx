@@ -1,6 +1,6 @@
 "use client";
 
-import Post from "./Post";
+import Post from "./post";
 import { useState, useEffect, MouseEvent } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 

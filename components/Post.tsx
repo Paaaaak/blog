@@ -12,11 +12,12 @@ export default function Post({ post }: Props) {
 
   return (
     <div className="post">
-      <img
+      <Image
         className="post__image"
         src={backgroundImage}
         alt="Post Background"
-      ></img>
+        fill
+      />
       <Link href={`/post/${id}`}>
         <div className="post__body">
           <ul className="post__tags">
@@ -25,7 +26,6 @@ export default function Post({ post }: Props) {
                 <div className="post__badge">{tag}</div>
               </li>
             ))}
-            {/* <img src={logoImage} alt='logo' className="post__logo" /> */}
           </ul>
           <div className="post__title">
             <h2>{title}</h2>

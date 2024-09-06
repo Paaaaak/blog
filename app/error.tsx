@@ -1,6 +1,6 @@
 "use client";
 
-import Background from "../components/Background";
+import Background from "../components/background";
 
 export const metadata = {
   title: "Jaehyeon's Blog asdasd",

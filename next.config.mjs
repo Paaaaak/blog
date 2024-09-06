@@ -4,6 +4,9 @@ import withMDX from "@next/mdx";
 const nextConfig = {
   // Configure `pageExtensions` to include MDX files
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
+  images: {
+    domains: ["i.pinimg.com"],
+  },
   // Optionally, add any other Next.js config below
 };
 

@@ -1,7 +1,7 @@
-import RecentPosts from "../components/RecentPosts";
-import Namecard from "../components/Namecard";
+import RecentPosts from "../components/recent-posts";
+import Namecard from "../components/namecard";
 import Link from "next/link";
-import Background from "../components/Background";
+import Background from "../components/background";
 
 export const metadata = {
   title: "Jaehyeon's Blog asdasd",

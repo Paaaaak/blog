@@ -1,7 +1,7 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../components/header";
+import Footer from "../components/footer";
 import "@/sass/main.scss";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/navbar";
 import { Suspense } from "react";
 import Loading from "./loading";
 

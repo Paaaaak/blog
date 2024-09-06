@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import Background from "../../components/Background";
+import Background from "../../components/background";
 import Loading from "../loading";
 
 export const metadata = {
