@@ -30,7 +30,7 @@ export function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }: { params: { postId: string } }) {
+export async function generateMetadata({ params }: { params: { postId: string } }) {
   const posts = getSortedPostsData();
   const { postId } = params;
 
@@ -43,7 +43,7 @@ export function generateMetadata({ params }: { params: { postId: string } }) {
   }
 
   return {
-    title: post.title,
+    title: `${post.title} | Paaak's Blog`,
     description: post.subtitle,
   };
 }

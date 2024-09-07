@@ -1,9 +1,7 @@
 import Background from "../components/background";
 
 export const metadata = {
-  title: "Jaehyeon's Blog asdasd",
-  description: "Created by Dave Gray",
-  keywords: "nextjs, seo, metadata",
+  title: "Page Not Found | Paaak's Blog",
 };
 
 export default function Home() {

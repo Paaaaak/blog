@@ -5,9 +5,7 @@ import Background from "../components/background";
 import { Suspense } from "react";
 
 export const metadata = {
-  title: "Jaehyeon's Blog asdasd",
-  description: "Created by Dave Gray",
-  keywords: "nextjs, seo, metadata",
+  title: "Home | Paaak's Blog",
 };
 
 /**

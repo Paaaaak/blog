@@ -4,9 +4,7 @@ import Posts from "../../components/posts";
 import Background from "../../components/background";
 
 export const metadata = {
-  title: "Jaehyeon's Blog asdasd",
-  description: "Created by Dave Gray",
-  keywords: "nextjs, seo, metadata",
+  title: "Posts | Paaak's Blog",
 };
 
 const page = () => {
