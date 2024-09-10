@@ -2,16 +2,66 @@
 title: 'BFS, DFS, and Searching'
 subtitle: 'Explain in detail how I developed this blog with Next.js'
 date: '2024-09-10'
-tags: ['Algorithm', 'Data Structure']
+tags: ['Algorithm', 'Data Structure', 'Graph']
 backgroundImage: 'https://i.pinimg.com/564x/81/eb/10/81eb104a1ef9efe02fb2584d55bc14ca.jpg'
 isPublished: true
 ---
 
-# Introduction  
+# What are BFS and DFS?
 
-# 1. Linear Search    
+To loop to visit all of data structures like arrays, lists, hash, tables, queues, and stacks, 
+The name traversal and search is often used interchangeably, sometimes meaning the same thing.  
+Trees and graphs are used a lot when we want to search nodes or visit every node. 
 
-Linear search go through the entire list and it can be the worst case, causing a lot of time.  
-We can't use <Highlight>linear search</Highlight> to index websites like searching for friends in Facebook.
+Why do we have these two ways of exploring a tree or a graph?
+The time complexity for BFS and DFS are the same since they both visit the nodes at least once.
+
+Pros and cons of BFS and DFS.
+
+BFS is good for finding the shortest path between a starting point and any other reacdhable node because we always start off with the root node 
+and then search the closest nodes first and the nodes further and further.
+
+It requires more memory than DFS.
+
+DFS is good at asking Does that path exist?
+
+DFS uses less memory than BFS since it only needs to store nodes along a single path from the root to the current node, rather than all nodes at a given level.
+
+# What are the pros and cons of each?
 
 <CustomImage src={'/blogposts-assets/blog-with-nextjs/image.png'} alt={'image'} width={400} height={500} caption={'example'} />
+
+# In what situation should you use BFS or DFS?
+> Determining whether a path exists between two nodes
+
+DFS uses less memory.
+
+> Finding the shortest path
+
+DFS explores nodes along a path until it reaches the end before backtracking.  
+While BFS explores all nodes at the current level before moving to the next level, 
+which guarantees that the first time it reaches the target node, it has found the shortest path.
+
+> If solutions are frequent but located deep in the tree 
+
+Solutions are frequent, so you will be able to find it quicker by using DFS
+
+> If the tree is very wide
+
+DFS. Because BFS quickly consumes a lot of memory because it must store all nodes at the current level, which can be very large.
+
+> If the tree is very deep and solutions are rare
+
+BFS because DFS will take really long time as the tree is very deep.
+
+> If you know a solution is not far from the root of the trees
+
+<Highlight>BFS</Highlight> explores nodes level-by-level starting from the root. This means it checks all nodes at the current depth before moving deeper, ensuring that it finds the closest (or shallowest) solution first.
+
+# Breadth First Search (BFS)  
+
+BFS uses additional memory because it is necessary to track the child nodes of all the nodes on a given level while searching that level.
+
+# Depth First Search (DFS)
+
+DFS has a lower memory requirement than BFS because it's not necessary to store all the child pointers at each level.

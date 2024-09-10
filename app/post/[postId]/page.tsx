@@ -12,12 +12,15 @@ import CustomP from "@/components/mdx/custom-p";
 import CustomH1 from "@/components/mdx/custom-h1";
 import CustomImage from "@/components/mdx/custom-image";
 import { getReadingTime } from "@/lib/getReadingTime";
+import CustomCode from "@/components/mdx/custom-code";
+import CustomBlockquote from "@/components/mdx/custom-blockquote";
 
 const components = {
   h1: CustomH1,
   p: CustomP,
   ul: CustomUl,
   li: CustomLi,
+  blockquote: CustomBlockquote,
   CustomImage,
   Highlight,
 };
