@@ -30,7 +30,11 @@ export function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: { params: { postId: string } }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: { postId: string };
+}) {
   const posts = getSortedPostsData();
   const { postId } = params;
 
@@ -75,7 +79,13 @@ export default async function Post({ params }: { params: { postId: string } }) {
             source={postInfo.content}
             components={components}
           ></MDXRemote>
-          <Link href="/">← Back to home</Link>
+          <div className="common-button-container">
+            <Link href="/" style={{ textDecoration: "none" }}>
+              <div className="common-button" style={{ padding: "10px 30px" }}>
+                <span>← Back to home</span>
+              </div>
+            </Link>
+          </div>
         </div>
       </main>
     </>
