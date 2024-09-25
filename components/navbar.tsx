@@ -24,13 +24,25 @@ const Navbar = () => {
         <div className="header__menu-container">
           <ul className="header__menu-list">
             <li className="header__menu-item">
-              <Link href="/" className={path === '/' ? 'active' : ''}>Home</Link>
+              <Link href="/" className={path === "/" ? "active" : ""}>
+                Home
+              </Link>
             </li>
             <li className="header__menu-item">
-              <Link href="/posts" className={path.startsWith('/posts') ? 'active' : ''}>Posts</Link>
+              <Link
+                href="/posts"
+                className={path.startsWith("/posts") ? "active" : ""}
+              >
+                Posts
+              </Link>
             </li>
             <li className="header__menu-item">
-              <Link href="/about" className={path.startsWith('/about') ? 'active' : ''}>About</Link>
+              <Link
+                href="/resume"
+                className={path.startsWith("/resume") ? "active" : ""}
+              >
+                Resume
+              </Link>
             </li>
           </ul>
           <div
@@ -56,7 +68,7 @@ const Navbar = () => {
             <Link href="/posts">Posts</Link>
           </li>
           <li className="header__burger-menu-item">
-            <Link href="/about">About</Link>
+            <Link href="/resume">Resume</Link>
           </li>
         </ul>
       </div>

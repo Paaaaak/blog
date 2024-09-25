@@ -1,0 +1,51 @@
+.resume {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.resume img {
+  border-radius: 5px;
+  width: 100px;
+}
+
+.resume h1 {
+  margin-bottom: 1rem;
+}
+
+.resume {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+
+  ul li {
+    margin-right: 5px;
+    background-color: $dark-green;
+    padding: 3px;
+    border-radius: 3px;
+  }
+}
+
+.resume-body {
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.resume-intro {}
+
+.resume-company {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.resume-content {
+  display: flex;
+  flex-direction: row;
+  gap: 0.7rem;
+}
