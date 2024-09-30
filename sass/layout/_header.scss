@@ -27,7 +27,7 @@
     height: 100%;
 }
 
-.header-title {
+.header-title-container {
     width: 641px;
     font-size: 2.5rem;
     color: white; /* 텍스트 색상 설정 */
@@ -40,21 +40,40 @@
 }
 
 @media only screen and (max-width: 700px) {
-    .header-title {
+    .header-title-container {
       width: calc(100% - 6vw); 
     }
 }
 
-.header-title span:nth-of-type(2) {
-    font-size: 1.3rem;
-    color: rgb(203, 203, 203);
-    margin-top: 8px;
+.header-title, 
+.header-subtitle {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
 }
-.header-title.post span:nth-of-type(1) {
-    font-size: 1.6rem;
+
+.header-title.show, 
+.header-subtitle.show {
+  opacity: 1;
+  transform: translateY(0);
 }
-.header-title.post span:nth-of-type(2) {
-    font-size: 1.1rem;
+
+.header-title {
+  font-size: 2rem;
+}
+
+.header-subtitle {
+  font-size: 1.3rem;
+  color: rgb(203, 203, 203);
+  margin-top: 8px;
+}
+
+.header-title-container.post .header-title {
+  font-size: 1.6rem;
+}
+
+.header-title-container.post .header-subtitle {
+  font-size: 1.1rem;
 }
 
 @media only screen and (max-width: 1000px) {

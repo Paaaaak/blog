@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const imageUrl: { [key: string]: string } = {
   main: "https://i.pinimg.com/564x/b3/79/52/b37952f5dd53a812a08dca6e5b207613.jpg",
@@ -39,10 +39,25 @@ const Background: React.FC<HeaderProps> = ({
   const [title, setTitle] = useState<string | null>(null);
   const [subtitle, setSubtitle] = useState<string | null>(null);
 
+  const titleRef = useRef<HTMLSpanElement | null>(null);
+  const subtitleRef = useRef<HTMLSpanElement | null>(null);
+
   useEffect(() => {
     setBackground(backgroundImage || imageUrl[pageType]);
     setTitle(pageTitle ? pageTitle : titles[pageType]);
     setSubtitle(pageSubtitle ? pageSubtitle : subtitles[pageType]);
+
+    if (titleRef.current) {
+      titleRef.current.classList.add("show");
+    }
+
+    const timer = setTimeout(() => {
+      if (subtitleRef.current) {
+        subtitleRef.current.classList.add("show");
+      }
+    }, 300);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -51,9 +66,15 @@ const Background: React.FC<HeaderProps> = ({
       style={{ backgroundImage: `url(${background})` }}
     >
       <div className="header-text" style={{ background: "rgba(0, 0, 0, 0.5)" }}>
-        <div className={`header-title ${pageType === "post" && "post"}`}>
-          <span>{title}</span>
-          <span>{subtitle}</span>
+        <div
+          className={`header-title-container ${pageType === "post" && "post"}`}
+        >
+          <span className="header-title" ref={titleRef}>
+            {title}
+          </span>
+          <span className="header-subtitle" ref={subtitleRef}>
+            {subtitle}
+          </span>
         </div>
       </div>
     </div>
