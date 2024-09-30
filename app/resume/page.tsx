@@ -21,7 +21,7 @@ const page = async () => {
           <Suspense fallback={<div>Page is loading...</div>}>
             <div className="resume">
               <div className="resume-intro">
-                <h1>I'm Jaehyeon Park</h1>
+                <h1>I&apos;m Jaehyeon Park</h1>
                 <div className="resume-body">
                   <p>
                     I have 2 years work experience as web developer. I started
@@ -108,7 +108,7 @@ const page = async () => {
                   <div className="resume-content">
                     <Image src={Profile} alt="logo" width={100} />
                     <div>
-                      <h3>Paaak's blog</h3>
+                      <h3>Paaak&apos;s blog</h3>
                       <p>Running tech blog based on frontend development</p>
                     </div>
                   </div>
