@@ -7,8 +7,8 @@ export const metadata = {
   title: "Posts | Paaak's Blog",
 };
 
-const page = () => {
-  const posts = getSortedPostsData();
+const page = async () => {
+  const posts = await getSortedPostsData();
 
   return (
     <>

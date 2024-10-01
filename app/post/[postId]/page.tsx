@@ -25,8 +25,8 @@ const components = {
   Highlight,
 };
 
-export function generateStaticParams() {
-  const posts = getSortedPostsData();
+export async function generateStaticParams() {
+  const posts = await getSortedPostsData();
 
   return posts.map((post) => ({
     postId: post.id,
@@ -38,7 +38,7 @@ export async function generateMetadata({
 }: {
   params: { postId: string };
 }) {
-  const posts = getSortedPostsData();
+  const posts = await getSortedPostsData();
   const { postId } = params;
 
   const post = posts.find((post) => post.id === postId);
@@ -62,7 +62,7 @@ export async function generateMetadata({
  *
  */
 export default async function Post({ params }: { params: { postId: string } }) {
-  const posts = getSortedPostsData();
+  const posts = await getSortedPostsData();
   const { postId } = params;
 
   if (!posts.find((post) => post.id === postId)) {

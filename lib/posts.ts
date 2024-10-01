@@ -4,14 +4,13 @@ import matter from "gray-matter";
 
 const postsDirectory = path.join(process.cwd(), "blogposts");
 
-export function getSortedPostsData() {
+export async function getSortedPostsData() {
   // Get file names under /posts
   const folderNames = fs.readdirSync(postsDirectory);
   const allPostsData = folderNames.map((folderName) => {
     const id = folderName;
 
     const fullPath = path.join(postsDirectory, folderName, 'index.mdx');
-    console.log(fullPath)
     const fileContents = fs.readFileSync(fullPath, "utf8");
 
     // Use gray-matter to parse the post metadata section
@@ -30,6 +29,9 @@ export function getSortedPostsData() {
     // Combine the data with the id
     return blogPost;
   });
+
+  await new Promise(res => setTimeout(res, 1500));
+
   // Sort posts by date
   allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
   return allPostsData.filter(post => post.isPublished);
@@ -40,7 +42,6 @@ export async function getPostData(id: string) {
   const fileContents = fs.readFileSync(fullPath, "utf8");
   
   const { data: frontmatter, content } = matter(fileContents);
-  console.log(frontmatter, content);
 
   const blogPostWithHTML: BlogPost & { content: string } = {
     id,

@@ -1,8 +1,8 @@
 import { getSortedPostsData } from "@/lib/posts";
 import Post from "./post";
 
-export default function RecentPosts() {
-  const posts = getSortedPostsData();
+export default async function RecentPosts() {
+  const posts = await getSortedPostsData();
   const recentPosts = posts.slice(0, 5);
 
   return (
