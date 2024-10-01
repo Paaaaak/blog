@@ -9,6 +9,7 @@ interface BlogListProps {
 }
 
 const Posts: React.FC<BlogListProps> = ({ posts }) => {
+  const [isClient, setIsClient] = useState(false);
   const [search, setSearch] = useState("");
   const [tags, setTags] = useState<Map<string, number>>(
     new Map<string, number>()
@@ -17,6 +18,8 @@ const Posts: React.FC<BlogListProps> = ({ posts }) => {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
   useEffect(() => {
+    setIsClient(true);
+    
     const tagsMap = new Map<string, number>();
 
     let tags: string[] = [];
@@ -68,7 +71,7 @@ const Posts: React.FC<BlogListProps> = ({ posts }) => {
             />
             <span className="input__label">Search By Title</span>
           </label>
-          <SearchIcon></SearchIcon>
+          {isClient ? <SearchIcon></SearchIcon> : null}
         </div>
 
         <h2>Filter with tag</h2>

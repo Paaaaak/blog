@@ -5,6 +5,7 @@ import CompanyLogo2 from "@/public/images/company_logo2.png";
 import UniversityLogo from "@/public/images/university.png";
 import Profile from "@/public/images/profile.jpg";
 import Image from "next/image";
+import Skeleton from "@/components/skeleton";
 
 export const metadata = {
   title: "Resume | Paaak's Blog",
@@ -18,7 +19,7 @@ const page = async () => {
       </header>
       <main className="main">
         <div className="main-div">
-          <Suspense fallback={<div>Page is loading...</div>}>
+          <Suspense fallback={<Skeleton></Skeleton>}>
             <div className="resume">
               <div className="resume-intro">
                 <h1>I&apos;m Jaehyeon Park</h1>

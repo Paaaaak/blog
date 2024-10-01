@@ -2,14 +2,14 @@ import { getSortedPostsData } from "@/lib/posts";
 import React, { Suspense } from "react";
 import Posts from "../../components/posts";
 import Background from "../../components/background";
+import PostsContainer from "@/components/posts-container";
+import Skeleton from "@/components/skeleton";
 
 export const metadata = {
   title: "Posts | Paaak's Blog",
 };
 
 const page = async () => {
-  const posts = await getSortedPostsData();
-
   return (
     <>
       <header>
@@ -17,8 +17,8 @@ const page = async () => {
       </header>
       <main className="main">
         <div className="main-div">
-          <Suspense fallback={<div>Page is loading...</div>}>
-            <Posts posts={posts}></Posts>
+          <Suspense fallback={<Skeleton></Skeleton>}>
+            <PostsContainer></PostsContainer>
           </Suspense>
         </div>
       </main>

@@ -3,6 +3,7 @@ import Namecard from "../components/namecard";
 import Link from "next/link";
 import Background from "../components/background";
 import { Suspense } from "react";
+import Skeleton from "@/components/skeleton";
 
 export const metadata = {
   title: "Home | Paaak's Blog",
@@ -31,7 +32,7 @@ export default function Home() {
         <div className="main-div">
           <Namecard></Namecard>
           <h2 className="main-h2">Recently published</h2>
-          <Suspense fallback={<div>Page is loading...</div>}>
+          <Suspense fallback={<Skeleton></Skeleton>}>
             <RecentPosts></RecentPosts>
           </Suspense>
           <div className="common-button-container">
