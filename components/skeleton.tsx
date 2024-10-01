@@ -1,22 +1,17 @@
-import Namecard from "./namecard";
+type Props = {
+  length: number; // Number가 아닌 소문자 number
+};
 
-export default function Skeleton() {
+export default function Skeleton({ length }: Props) {
   return (
-    <div>
-      <div className="name-card-container">
-        
-        <div className="name-card-introduction">
-          <span>
-            <b>Jaehyeon </b>
-            <b style={{ color: "#D4AF37" }}>Park</b>
-          </span>
-          <span>
-            I deliver useful <b>Frontend</b> and <b>UX</b> tips and maintain
-            this blog as a reminder to myself.
-          </span>
-          
+    <>
+      {Array.from({ length }).map((_, index) => (
+        <div className="skeleton-container">
+          <div className="skeleton-content"></div>
+          <div className="skeleton-paragraph"></div>
+          <div className="skeleton-paragraph2"></div>
         </div>
-      </div>
-    </div>
+      ))}
+    </>
   );
 }

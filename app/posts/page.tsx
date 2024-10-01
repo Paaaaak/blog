@@ -17,7 +17,7 @@ const page = async () => {
       </header>
       <main className="main">
         <div className="main-div">
-          <Suspense fallback={<Skeleton></Skeleton>}>
+          <Suspense fallback={<Skeleton length={3}></Skeleton>}>
             <PostsContainer></PostsContainer>
           </Suspense>
         </div>

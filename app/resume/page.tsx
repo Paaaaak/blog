@@ -19,7 +19,7 @@ const page = async () => {
       </header>
       <main className="main">
         <div className="main-div">
-          <Suspense fallback={<Skeleton></Skeleton>}>
+          <Suspense fallback={<Skeleton length={3}></Skeleton>}>
             <div className="resume">
               <div className="resume-intro">
                 <h1>I&apos;m Jaehyeon Park</h1>

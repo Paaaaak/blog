@@ -32,7 +32,7 @@ export default function Home() {
         <div className="main-div">
           <Namecard></Namecard>
           <h2 className="main-h2">Recently published</h2>
-          <Suspense fallback={<Skeleton></Skeleton>}>
+          <Suspense fallback={<Skeleton length={3}></Skeleton>}>
             <RecentPosts></RecentPosts>
           </Suspense>
           <div className="common-button-container">
