@@ -1,6 +1,6 @@
 import React from "react";
 
-const CustomBlockquote = (props: React.HTMLProps<HTMLQuoteElement>) => {
+const blockquote = (props: React.HTMLProps<HTMLQuoteElement>) => {
   const style = {
     backgroundColor: "hsla(220, 1%, 40%, 0.568)",
     padding: "10px",
@@ -10,4 +10,4 @@ const CustomBlockquote = (props: React.HTMLProps<HTMLQuoteElement>) => {
   return <blockquote style={style} {...props} />;
 };
 
-export default CustomBlockquote;
+export default blockquote;
