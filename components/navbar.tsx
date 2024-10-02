@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Menu from "@mui/icons-material/Menu";
 import MenuOpen from "@mui/icons-material/MenuOpen";
 import Link from "next/link";
@@ -59,7 +59,9 @@ const Navbar = () => {
         className={`header__burger-menu ${
           isOpen ? "header__burger-menu--show" : ""
         }`}
+        onClick={() => setIsOpen(false)}
       >
+        <div className="header__burger-menu-backdrop"></div>
         <ul className="header__burger-menu-list">
           <li className="header__burger-menu-item">
             <Link href="/">Home</Link>
