@@ -3,11 +3,11 @@
 import React, { useState, useEffect, useRef } from "react";
 
 const imageUrl: { [key: string]: string } = {
-  main: "https://i.pinimg.com/564x/b3/79/52/b37952f5dd53a812a08dca6e5b207613.jpg",
+  main: "https://cdn.pixabay.com/photo/2020/02/29/14/00/landscape-4890162_1280.png",
   posts:
-    "https://i.pinimg.com/564x/73/28/34/73283455b0dc95b9853f32971fbbbb3d.jpg",
+    "https://cdn.pixabay.com/photo/2024/09/15/19/16/ai-generated-9049861_1280.png",
   resume:
-    "https://i.pinimg.com/564x/74/18/b7/7418b7aa1f39518972cf90b9e5f9153a.jpg",
+    "https://cdn.pixabay.com/photo/2024/09/15/19/16/ai-generated-9049866_1280.png",
 };
 
 const titles: { [key: string]: string } = {
@@ -65,7 +65,10 @@ const Background: React.FC<HeaderProps> = ({
       className="header-div"
       style={{ backgroundImage: `url(${background})` }}
     >
-      <div className="header-text" style={{ background: "rgba(0, 0, 0, 0.5)" }}>
+      <div
+        className="header-text-container"
+        style={{ background: "rgba(0, 0, 0, 0.5)" }}
+      >
         <div
           className={`header-title-container ${pageType === "post" && "post"}`}
         >
@@ -77,6 +80,7 @@ const Background: React.FC<HeaderProps> = ({
           </span>
         </div>
       </div>
+      <div className="header-blur"></div>
     </div>
   );
 };

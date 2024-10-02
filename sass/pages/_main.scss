@@ -18,7 +18,7 @@
 
 .main-div {
   width: 641px;
-  margin: 0px auto;
+  margin: 20px auto;
 
   .main-h2 {
     padding-left: 25px;
@@ -30,7 +30,7 @@
 @media only screen and (max-width: 700px) {
   .main-div {
     width: calc(100% - 6vw);
-    margin: 60px auto;
+    margin: 20px auto;
   }
 }
 
