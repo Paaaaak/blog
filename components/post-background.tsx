@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from "react";
 import getFormattedDate from "@/lib/getFormattedDate";
 import { getReadingTime } from "@/lib/getReadingTime";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 
 interface PostInfo {
   id: string;
@@ -33,12 +35,6 @@ const PostBackground: React.FC<HeaderProps> = ({ postInfo }) => {
           <div className="post-background__title">{postInfo.title}</div>
           <div className="post-background__subtitle">{postInfo.subtitle}</div>
           <div className="post-background__info">
-            <span className="post-background__date">
-              Date: {pubDate}
-            </span>
-            <span className="post-background__reading-time">
-              Time: {readingTime}
-            </span>
             <ul className="post-background__tags">
               {postInfo.tags.map((tag) => (
                 <li key={tag} className="post-background__tag-item">
@@ -48,6 +44,14 @@ const PostBackground: React.FC<HeaderProps> = ({ postInfo }) => {
                 </li>
               ))}
             </ul>
+            <div className="post-background__date">
+              <CalendarMonthIcon></CalendarMonthIcon>
+              <span>{pubDate}</span>
+            </div>
+            <div className="post-background__reading-time">
+              <AutoStoriesIcon></AutoStoriesIcon>
+              <span>{readingTime}</span>
+            </div>
           </div>
         </div>
       </div>
