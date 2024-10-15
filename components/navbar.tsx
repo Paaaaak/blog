@@ -36,14 +36,14 @@ const Navbar = () => {
                 Posts
               </Link>
             </li>
-            <li className="header__menu-item">
+            {/* <li className="header__menu-item">
               <Link
                 href="/resume"
                 className={path.startsWith("/resume") ? "active" : ""}
               >
                 Resume
               </Link>
-            </li>
+            </li> */}
           </ul>
           <div
             className={`header__toggle-button ${
@@ -69,9 +69,9 @@ const Navbar = () => {
           <li className="header__burger-menu-item">
             <Link href="/posts">Posts</Link>
           </li>
-          <li className="header__burger-menu-item">
+          {/* <li className="header__burger-menu-item">
             <Link href="/resume">Resume</Link>
-          </li>
+          </li> */}
         </ul>
       </div>
     </div>
