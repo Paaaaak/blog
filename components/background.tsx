@@ -19,7 +19,7 @@ const titles: { [key: string]: string } = {
 const subtitles: { [key: string]: string } = {
   main: "Creating helpful content for Frontend Development",
   posts: "Check out all posts with various topics",
-  resume: "Introduce myself",
+  resume: "Brief summary of my career as Frontend Developer",
 };
 
 interface HeaderProps {
