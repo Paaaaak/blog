@@ -35,7 +35,7 @@ const Namecard = () => {
             >
               <GitHubIcon style={{ fontSize: "1.8rem", cursor: "pointer" }} />
             </a>
-            <a href="/">
+            <a href="https://www.instagram.com/j.paaaak/">
               <InstagramIcon
                 style={{ fontSize: "1.8rem", cursor: "pointer" }}
               />
