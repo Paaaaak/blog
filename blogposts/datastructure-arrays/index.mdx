@@ -1,0 +1,50 @@
+---
+title: 'Data Structure 1: Arrays'
+subtitle: 'We will begin by looking at what an Array is, and what it is used for.'
+date: '2024-09-10'
+tags: ['Data Structure']
+backgroundImage: 'https://cdn.pixabay.com/photo/2023/02/07/18/56/rocket-7774875_960_720.png'
+isPublished: true
+---
+
+# Introduction
+Arrays are one of the most fundamental data structures in computer science. 
+They provide a simple and efficient way to store and manage collections of data. 
+In this blog post, we'll explore arrays in detail, including their operations, advantages, limitations, and things to be mindful of when working with them.
+
+# What is an Array?
+An array is a collection of elements stored in contiguous memory locations. 
+Each element in an array is identified by an index, which starts at 0 in most programming languages. 
+Arrays are widely used due to their simplicity and the constant-time access to elements using their index.
+
+# Characteristics of Arrays
+1. Fixed size: Once an array is created, its size cannot be changed.
+2. Homogeneous data: Arrays typically store elements of the same data type.
+3. Random access: You can access any element directly using its index.
+
+# Common Array Operations
+1. Insertion<br></br>
+Adding an element to an array can be tricky because arrays have a fixed size. If the array has unused space:
+At the end: This is the simplest case and has a time complexity of O(1).
+At a specific index: Requires shifting elements to make room, with a time complexity of O(n) in the worst case.
+<br></br>
+2. Deletion<br></br>
+Removing an element from an array involves shifting the remaining elements to fill the gap.
+From the end: The easiest case, with a time complexity of O(1).
+From a specific index: Requires shifting elements and has a time complexity of O(n).
+<br></br>
+3. Search<br></br>
+Finding an element in an array can be done in two main ways:<br></br>
+<Highlight>Linear Search</Highlight>: Checks each element one by one (time complexity O(n)).<br></br>
+<Highlight>Binary Search</Highlight>: Requires the array to be sorted and has a time complexity of O(log n).
+<br></br>
+Things to be careful about:
+For binary search, ensure the array is sorted before searching.
+Handle edge cases like empty arrays or elements not found.
+<br></br>
+4. Traversal<br></br>
+Iterating through all elements of the array is common for tasks like printing, summing, or processing data. Traversal has a time complexity of O(n).
+
+# Best Practices When Using Arrays
+<Highlight>Two-pointer technique</Highlight> is where we iterate over the Array in two different places at the same time.
+<CustomImage src={'/blogposts-assets/datastructure-arrays/image.png'} alt={'image'} width={400} height={500} caption={'Image sourced from LeetCode'} />

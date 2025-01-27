@@ -1,7 +1,12 @@
 import React from "react";
 
 const CustomLi = (props: React.HTMLProps<HTMLLIElement>) => {
-  return <li style={{ fontSize: '18px', marginBottom: '1rem' }} {...props} />;
+  const liStyle = {
+    lineHeight: "30px",
+    fontSize: "18px",
+  };
+
+  return <li style={liStyle} {...props} />;
 };
 
 export default CustomLi;

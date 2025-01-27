@@ -122,7 +122,7 @@ const page = async () => {
                   <div className="resume-content">
                     <Image src={UniversityLogo} alt="logo" width={100} />
                     <div>
-                      <h3>The State University of New York, Stony Brook</h3>
+                      <h3>The State University of New York, Korea</h3>
                       <p>2021.03 ~ 2026.12</p>
                       <p>Bachelor</p>
                       <p>Computer Science Major</p>
