@@ -6,3 +6,65 @@ tags: ['Data Structure']
 backgroundImage: 'https://cdn.pixabay.com/photo/2020/02/07/21/12/everest-4828404_1280.png'
 isPublished: true
 ---
+
+# Introduction
+A linked list is a linear data structure where elements, called nodes, are connected using pointers. Unlike arrays, 
+where elements are stored in contiguous memory locations, linked lists store elements anywhere in memory and link them together with references.
+
+# Key Components of a Linked List
+1. Node: Each element in a linked list. A node typically contains:
+2. Data: The value or information the node holds.
+3. Next: A pointer or reference to the next node in the list.
+4. Head: The first node in the linked list. The head acts as the entry point to the list.
+5. Null: The last node’s next pointer points to null, indicating the end of the list.
+
+# Why Use Linked Lists?
+Linked lists have several advantages over arrays, including:
+1. Dynamic Size:
+Unlike arrays, linked lists do not require a predefined size. They grow and shrink as needed.
+2. Efficient Insertions and Deletions:
+Adding or removing elements is faster because there’s no need to shift elements, as in arrays.
+3. Memory Utilization:
+Linked lists can use non-contiguous memory, making them suitable for systems with fragmented memory.
+
+# Types of Linked lists
+1. <Highlight>Singly Linked List</Highlight>:
+<CustomImage src={'/blogposts-assets/datastructure-linkedlist/singlylinkedlist.png'} alt={'image'} width={400} height={500} caption={'Image sourced from LeetCode'} />
+Each node has a single pointer to the next node.
+Traversal is one-directional, starting from the head.
+<br></br>
+2. <Highlight>Doubly Linked List</Highlight>:
+<CustomImage src={'/blogposts-assets/datastructure-linkedlist/doublylinkedlist.png'} alt={'image'} width={400} height={500} caption={'Image sourced from LeetCode'} />
+Each node has two pointers: one to the next node and another to the previous node.
+Traversal can be done in both directions.
+<br></br>
+3. Circular Linked List:
+The last node points back to the head, forming a circle.
+Can be singly or doubly linked.
+
+# Essential Linked List Techniques for Problem-Solving
+
+1. Dummy Node Technique
+<br></br>
+A dummy node simplifies linked list modifications by providing a placeholder node at the beginning. 
+This technique helps avoid edge cases when modifying the head node.
+<br></br>
+2. Two-Pointer Technique
+<br></br>
+Using two pointers (fast and slow) allows efficient traversal with O(N) complexity. 
+This technique is useful for finding the middle node, detecting cycles, and finding the nth node from the end.
+<br></br>
+3. Cycle Detection (Floyd’s Algorithm)
+<br></br>
+If a linked list has a cycle, it can cause infinite loops. 
+Floyd’s algorithm (also called the Tortoise and Hare algorithm) efficiently detects cycles using two pointers.
+<br></br>
+
+# Linked List or Array, which one should be used,  and when?
+
+Here is the time complexity between the linked list and array.
+<CustomImage src={'/blogposts-assets/datastructure-linkedlist/comparison_of_time_complexity.png'} alt={'image'} width={400} height={500} caption={'Image sourced from LeetCode'} />
+From this comparison, we can draw the following conclusions:
+
+1. If frequent node additions or deletions are required, a linked list may be a better choice.
+2. If frequent access to elements by index is needed, an array could be a more efficient option than a linked list.

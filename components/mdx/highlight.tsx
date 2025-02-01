@@ -7,7 +7,13 @@ interface HighlightProps {
 
 const Highlight: React.FC<HighlightProps> = ({ children }) => {
   return (
-    <span style={{ backgroundColor: "#D4AF37", padding: "1px 3px" }}>
+    <span
+      style={{
+        backgroundColor: "#D4AF37",
+        padding: "1px 3px",
+        borderRadius: "3px",
+      }}
+    >
       {children}
     </span>
   );

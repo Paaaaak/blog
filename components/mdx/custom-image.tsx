@@ -24,7 +24,7 @@ const CustomImage: React.FC<CustomImageProps> = ({
       height={height}
       style={{ width: "100%", height: "100%", borderRadius: "10px" }}
     />
-    <span style={{ opacity: "0.7" }}>{caption}</span>
+    <span style={{ fontSize: "11px", opacity: "0.7" }}>{caption}</span>
   </div>
 );
 
