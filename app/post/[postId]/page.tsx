@@ -14,15 +14,21 @@ import CustomImage from "@/components/mdx/custom-image";
 import { getReadingTime } from "@/lib/getReadingTime";
 import CustomCode from "@/components/mdx/custom-code";
 import CustomBlockquote from "@/components/mdx/custom-blockquote";
+import Underline from "@/components/mdx/underline";
+import CustomPre from "@/components/mdx/custom-pre";
+import CustomH2 from "@/components/mdx/custom-h2";
 
 const components = {
   h1: CustomH1,
+  h2: CustomH2,
   p: CustomP,
   ul: CustomUl,
   li: CustomLi,
   blockquote: CustomBlockquote,
+  pre: CustomPre,
   CustomImage,
   Highlight,
+  Underline,
 };
 
 export async function generateStaticParams() {

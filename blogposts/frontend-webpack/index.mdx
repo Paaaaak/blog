@@ -7,14 +7,161 @@ backgroundImage: 'https://cdn.pixabay.com/photo/2017/07/20/09/08/lamp-2521654_12
 isPublished: true
 ---
 
+# What is Webpack?
+Imagine you have a big box of LEGO pieces, and you want to build a cool spaceship. 
+But the LEGO pieces are all over the place—some are in your room, some are in the living room, and some are even under the couch. 
+To build your spaceship, you need to gather all the pieces and put them together in the right way.
+<br></br>
+Webpack is like a super-smart robot that helps you do this for websites. When you’re making a website, 
+you have lots of small pieces of code (like HTML, CSS, and JavaScript files) that need to work together. 
+Webpack goes around, finds all those pieces, and puts them into one or a few neat bundles, so your website can run smoothly.
+<br></br>
+So, just like the robot helps you organize your LEGO pieces to build a spaceship, Webpack helps organize your code to build a website
+<br></br>
+Now, let's dive into what Webpack is more specifically.
+Webpack is the most popular <Highlight>JavaScript module bundler</Highlight>. 
+<CustomImage src={'/blogposts-assets/frontend-webpack/webpack.png'} alt={'image'} width={400} height={500} caption={'Image sourced from LeetCode'} />
+Like the image above, it allows you to bundle not only JavaScript files (.js) but also other modules like CSS and image files into a <Underline>single file</Underline>.
+Importing hundreds of external files means that as the application grows in size, the user experience satisfaction tends to decrease. 
+This is because all external files must be loaded over the network, which results in increased network load, greater computing power consumption, and higher costs.
+Webpack bundles all the files into single file, which means it makes applications more efficient and improves loading speed.
+<br></br>
+When Webpack processes an application, it internally creates a <Highlight>dependency graph</Highlight> that maps all the modules required by the project and generates one or more bundles.
+<br></br>
+> In Webpack, a <Highlight>Dependency Graph</Highlight> is a visual representation of the relationships between the source code files in a project. 
+> It shows how files depend on each other—meaning which files <Underline>import</Underline> or <Underline>require</Underline> other files.
+> Based on this graph, Webpack efficiently performs bundling to create optimized and organized output files.
 
-{/* 많은 JS 패키지를 사용하다보면 예상하지 못한 충돌로 인해 어플리케이션이 깨지게 될 수도 있다(같은 이름을 변수를 사용하는 등). 이를 해결하기 위해 등장한 도구가 Bundler이다. bundle은 묶는다는 뜻이다. 
-여러개의 파일을 묶어주는 어떠한 정리 방법이다. 구체적인 기술로는 WebPack, Broserify, Parcel이 있다.
-WebPack은 가장 인기있는 도구이다. 하나의 JS파일에 .js뿐만 아니라 .css나 image파일 등을 모듈을 모두 몰아넣을 수 있다. 
-동시에 성능을 향상시키기 위해 필요하다면 다시 분리할 수 있다. 특히, WebPack을 둘러싼 방대한 생태계 덕분에 다양한 확장 기능 등이 있다. 따라서 많은 작업들을 자동화 시킬 수 있다.
+# How To Install
+## 1. Install Node.js and npm
+Webpack requires Node.js and npm (Node Package Manager).
+## 2. Install Webpack
+Install Webpack and its CLI (Command Line Interface) locally in your project:
+```
+npm install webpack webpack-cli --save-dev
+```
+## 3. Set Up Webpack Configuration
+Create a webpack.config.js file in your project root to configure Webpack. Here’s a basic example:
+```
+// webpack.config.js
+const path = require('path');
 
-프로그래밍의 작업이 어느정도 규모를 넘기 시작하면 변수의 충돌은 중요한 이슈이다. 따라서 '모듈화'에 대한 개념이 필요하다. <head>태그 안에서 script파일을 명시(?)하는 방법은 수직적이다. 간단하고 편리하다. 하지만 동일한 이름의 변수가 함수가 있다면 할당된 값들이 덮어씌워지거나 충돌할 수 있다.
-<script>태그의 type을 module로 만들어주고 외부에 있는 js파일 중 특정 변수나 함수만을 import하도록 코딩하면 효율적일 것 같다. 왜냐하면 외부 js파일에서 쓰이지 않을 변수나 함수를 굳이 읽어올 필요가 없기 때문이다. 또한 복잡한 애플리케이션의 변수충돌을 개발자가 컨트롤 가능한 수준으로 끌어내릴 수 있다.
-그럼에도 불구하고 수십, 수백 개의 외부 js파일을 import한다는 점에서 어플리케이션의 규모가 커질수록 사용자 경험의 만족은 낮아지게 된다. 왜냐하면 모든 외부 js파일을 네트워크를 통해 로딩해야하며 이는 더 많은 네트워크 부하와 컴퓨팅 파워, 비용을 소모시킨다.
-따라서 웹에서도 모듈의 개념을 사용하고 싶다는 생각과 여러개의 파일을 하나로 묶어서 제공하고 싶다는 생각을 한 사람들이 만든 도구가 Bundler이다. 그 중 가장 인기 있는 구체적인 도구가 Webpack인 것이다.
- */}
+module.exports = {
+  entry: './src/index.js', // Entry point of your application
+  output: {
+    filename: 'bundle.js', // Output file name
+    path: path.resolve(__dirname, 'dist'), // Output directory
+  },
+  mode: 'development', // Set mode to 'development' or 'production'
+};
+```
+## 4. Create Your Project Files
+Create a src folder and add an index.js file (or any other entry file you specified in the config).
+## 5.  Run Webpack
+To bundle your project, run the following command in your terminal:
+```
+npx webpack
+```
+This will generate a dist folder containing the bundled file (bundle.js in this case).
+## 6. View the Output
+Open the generated bundle.js file in the dist folder to see the bundled code. You can also link this file in an HTML file to test it in a browser.
+
+# Webpack Configuration
+Webpack configures the project's setup through the <Underline>webpack.config.js</Underline> file. The configuration options typically include Entry, Output, Loader, Plugin, and Mode.
+## 1. Entry
+The entry point is where the source file's entry path is defined, acting as the starting point for Webpack to build its internal dependency graph. 
+It specifies the module that Webpack should use as the starting point for bundling. By default, a single entry point is defined, 
+but multiple entry points can also be configured if needed.
+```
+module.exports = {
+  entry: './src/index.js',
+};
+```
+## 2. Output
+This property specifies the path and filename where the bundled files will be output (generated) after Webpack processes them.
+```
+module.exports = {
+  output: {
+    path: __dirname + '/dist',
+    filename: 'bundle.js',
+  },
+};
+```
+## 3. Loader
+By default, Webpack can only process JavaScript and JSON files. 
+However, with loaders, Webpack can transform other types of files (like CSS, images, etc.) into modules. 
+Loaders are mainly used to change the file format or perform specific tasks during the build process.
+<br></br>
+To use a loader in Webpack, you need to install the necessary package(s) and define them in the module.rules array within the configuration. 
+Each rule typically includes two properties: test and use.
+
+- test: This property is used to identify which files need to be processed by the loader. It's written using a regular expression (RegExp) to match files that should be transformed.<br></br><br></br>
+- use: This property specifies the loader(s) that will perform the transformation on the identified files.
+```
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
+};
+```
+Loaders are applied in <Underline>reverse order</Underline>, meaning they work from right to left (or from bottom to top if defined in an array).
+In the example above, css-loader will be started first.
+## 4. Plugin
+A plugin in Webpack is a powerful tool used to extend Webpack's capabilities beyond what loaders can do. While loaders transform files 
+(e.g., converting SCSS to CSS or bundling JavaScript modules), plugins perform a wider range of tasks, such as:
+
+- Optimizing assets (e.g., minifying JavaScript, CSS, and images)
+- Managing environment variables
+- Generating HTML files dynamically
+- Cleaning output directories before building
+- Enabling hot module replacement
+```
+// webpack.config.js
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    path: __dirname + '/dist',
+    filename: 'bundle.js',
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html', // Use this HTML template
+      filename: 'index.html', // Output file name
+    }),
+  ],
+};
+
+```
+## 5. Mode
+The mode option in Webpack defines the build environment and automatically sets optimizations for that environment. 
+It can be set to one of the following values:
+
+- development – Optimized for faster builds and better debugging (e.g., source maps, unminified output).
+- production – Optimized for performance (e.g., minification, tree shaking, and other optimizations).
+- none – No default optimizations are applied; you must configure everything manually.
+```
+// webpack.config.js
+
+module.exports = {
+  mode: 'development', // or 'production' or 'none'
+  entry: './src/index.js',
+  output: {
+    path: __dirname + '/dist',
+    filename: 'bundle.js',
+  },
+};
+```
+The mode is usually set in CI/CD automatically, using environment variables. 
+
+# Wrapping Up
+
+In this way, I have summarized the key concepts of Webpack. 
+There are many other options (e.g., Vite, Rollup, Parcel) that can be fine-tuned, 
+so it's a good idea to look for and apply the ones that are necessary for your project as you go.

@@ -2,7 +2,7 @@ import React from "react";
 
 const CustomCode = (props: React.HTMLProps<HTMLPreElement>) => {
   const CustomCodeStyle = {
-    color: "white",
+    color: "red",
     marginBottom: "10px",
   };
 
