@@ -1,0 +1,50 @@
+---
+title: 'Data Structure 3: Queue & Stack'
+subtitle: 'Go through the definition and tips for Queue and Stack.'
+date: '2024-11-24'
+tags: ['Data Structure', 'Java']
+backgroundImage: 'https://cdn.pixabay.com/photo/2021/08/07/14/36/modern-6528732_1280.png'
+isPublished: true
+---
+
+# Introduction
+We will look through two different processing orders, First-in-First-out and Last-in-First-out 
+and its two corresponding linear data structures, <Highlight>Queue</Highlight> and <Highlight>Stack</Highlight>.
+<br></br>
+By mastering Queue and Stack, you should be able to do solve problems by using BFS, DFS, and recursion algorithms.
+
+# What is Queue?
+In a FIFO (First-In-First-Out) data structure, the first element inserted into the queue is the first one to be processed.
+<CustomImage src={'/blogposts-assets/datastructure-queuenstack/queue.png'} alt={'image'} width={400} height={500} caption={'Image sourced from LeetCode'} />
+As illustrated in the image above, the queue follows the FIFO principle. 
+The operation to add an element is known as <Highlight>enqueue</Highlight>, and the new element is always inserted at the rear of the queue. 
+The operation to remove an element is called <Highlight>dequeue</Highlight>, and only the first element can be removed.
+
+# How to implement Queue?
+There is no Queue class in Java, since it follows the interface-based design principle, meaning Queue is an abstract contract that multiple classes 
+(like LinkedList and ArrayDeque) implement.
+This allows flexibility, you can choose an implementation based on your use case.
+Check out Java collections below.
+<br></br>
+<CustomImage src={'/blogposts-assets/datastructure-queuenstack/java_collections.png'} alt={'image'} width={400} height={500} caption={''} />
+<br></br>
+The followings are Queue implementation and build-in functions.
+```
+Queue<Integer> queue = new LinkedList<>();
+```
+<CustomImage src={'/blogposts-assets/datastructure-queuenstack/queue_functions.png'} alt={'image'} width={400} height={500} caption={''} />
+
+# What is Stack?
+In a LIFO (Last In, First Out) data structure, the most recently added element is processed first.
+<CustomImage src={'/blogposts-assets/datastructure-queuenstack/stack.png'} alt={'image'} width={400} height={500} caption={'Image sourced from LeetCode'} />
+Unlike a queue, a stack follows the LIFO principle. 
+The operation for adding an element to a stack is called <Highlight>push</Highlight>, and new elements are always placed at the top. 
+However, unlike a queue, where elements are removed from the front, the <Highlight>pop</Highlight> operation in a stack always removes the most recently added element, 
+making it the opposite of a queue.
+
+# How to implement Stack?
+The followings are Stack implementation and build-in functions.
+```
+Stack<Integer> stack = new Stack<>();
+```
+<CustomImage src={'/blogposts-assets/datastructure-queuenstack/stack_functions.png'} alt={'image'} width={400} height={500} caption={''} />
