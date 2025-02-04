@@ -11,13 +11,13 @@ const imageUrl: { [key: string]: string } = {
 };
 
 const titles: { [key: string]: string } = {
-  main: "Paak's Architect",
+  main: "Paak's Tech Blog",
   posts: "All Posts",
   resume: "Resume",
 };
 
 const subtitles: { [key: string]: string } = {
-  main: "Creating helpful content for Frontend Development",
+  main: "Creating helpful content for Software Engineer",
   posts: "Check out all posts with various topics",
   resume: "Brief summary of my career as Frontend Developer",
 };
