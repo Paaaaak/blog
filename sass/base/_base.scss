@@ -77,3 +77,9 @@ pre {
   white-space: pre-wrap;
   word-break: break-word;
 }
+
+li {
+  list-style-position: inside; /* 마커를 텍스트 영역 안으로 이동 */
+  padding-left: 20px; /* 왼쪽 패딩 추가 */
+  margin-left: 0; /* 기본 마진 제거 */
+}
