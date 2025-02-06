@@ -38,7 +38,7 @@ For this reason, a hash set is commonly used to determine whether <Underline>a v
 
 # Understanding Time Complexity
 When working with collections in Java, understanding the time complexity of built-in functions is essential for writing efficient code.
-In this chapter, we will cover the time complexity of HashMap and HashSet, and explain the reasoning behind these complexities.
+In this chapter, we will cover the time complexity of Hash Map and Hash Set, and explain the reasoning behind these complexities.
 
 ## 1. Hash Map Time Complexity
 <CustomImage src={'/blogposts-assets/datastructure-hashmapnset/map_complexity.png'} alt={'image'} width={400} height={500} caption={''} />
@@ -55,5 +55,6 @@ To understand that, we should go over Hash Table Mechanism.
 <br></br>
 3. This allows <Underline>direct access</Underline> to the bucket where the element is stored, avoiding the need to traverse the entire collection. 
 <br></br>
-In the worst case (e.g., all elements hash to the same bucket), the time complexity degrades to O(n), where n is the number of elements in the HashSet.
+In the worst-case scenario, where hash collisions occur frequently (e.g., all elements hash to the same bucket), 
+the time complexity of operations degrades to O(n), where n is the number of elements. 
 However, this is rare with a good hash function and proper resizing of the hash table.
