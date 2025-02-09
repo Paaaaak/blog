@@ -1,0 +1,116 @@
+---
+title: 'Data Structure 5: Trees 🌲'
+subtitle: 'Explain Tree and Binary Tree.'
+date: '2024-12-27'
+tags: ['Data Structure']
+backgroundImage: 'https://cdn.pixabay.com/photo/2021/01/05/06/41/forest-5889923_1280.png'
+isPublished: true
+---
+
+# Introduction
+
+A tree is a commonly used data structure designed to represent <Underline>hierarchical relationships</Underline>. 
+Each node in a tree contains a root value and a list of references to its child nodes. 
+From a graph perspective, a tree can also be described as a <Underline>directed acyclic graph</Underline> (DAG) with N nodes and N-1 edges.
+A <Highlight>Binary Tree</Highlight> is a specific and widely used type of tree. As the name implies, in a binary tree, each node can have a maximum of two children, 
+known as the left child and the right child.
+
+# Anatomy of a tree
+Let's look through some common terms of tree.
+<CustomImage src={'/blogposts-assets/datastructure-binarytree/tree.png'} alt={'image'} width={400} height={500} caption={''} />
+## 1. Node
+The circles in the tree are called Node and it's the fundamental unit of a tree.
+It contains <Underline>Data</Underline> (e.g., a value or object) and <Underline>References</Underline> (or pointers) to its child nodes.
+Example: In a binary tree, a node has at most two children (left and right).
+## 2. Root
+The root is the topmost node of the tree.
+It is the starting point of the tree and has no parent.
+## 3. Parent
+A parent is a node that has one or more child nodes.
+## 4. Child
+A child is a node that is connected to a parent node.
+A node can have zero or more children.
+## 5. Sibling
+Siblings are nodes that share the same parent.
+## 6. Leaf (or External Node)
+A leaf is a node with no children.
+It is the end of a branch.10. 
+## 7. Height
+The height of a node is maximum length from root to any leaf.
+Example: The height of the tree above is 4.
+## 8. Level
+The root node is at level 0, and the level increases by 1 for each step down the tree.
+## 9. Depth
+The depth of a node and the maximum depth (height) of a tree are different concepts.
+The depth of a node is the number of edges from the root to the given node.
+The maximum depth is the number of nodes on the longest path from the root to the deepest leaf node.<br></br>
+Example: The depth of a node E is 2, the maximum depth of a tree is 4. 
+
+# What is Binary Tree?
+A binary tree is a hierarchical data structure where each node has at most two children. These children are typically referred to as left child & right child.
+
+## Why is it Called a "Binary" Tree?
+The term "binary" means two, and a binary tree is named so because:<br></br>
+- ✅ Each node can have at most two children (not three, four, or more).<br></br>
+- ✅ The structure follows a left-child and right-child arrangement.
+
+This is different from a general tree, where a node can have any number of children.
+
+# Types of Binary Trees
+There are different types of binary trees, including:
+<CustomImage src={'/blogposts-assets/datastructure-binarytree/types_binarytree.png'} alt={'image'} width={400} height={500} caption={'Image sourced from How2InJava'} />
+## 1. Full Binary Tree 
+Every node has 0 or 2 children (not just 1). If all leaves are on the same level, it’s called a perfect binary tree<br></br>
+## 2. Complete Binary Tree 
+All levels are completely filled except possibly the last level. All leaves are at the left-most possible positions.<br></br>
+## 3. Perfect Binary Tree 
+Every internal node has exactly two children, and all leaf nodes are at the same level.<br></br>
+## 4. Binary Search Tree (BST) 
+A binary tree where the left subtree contains values smaller than the root, and the right subtree contains values greater than the root.<br></br>
+
+# Binary Tree Traversal
+Traversing a binary tree efficiently is crucial for many algorithms, including searching, sorting, and parsing hierarchical data. 
+We will explore different types of binary tree traversal techniques.
+<br></br>
+Tree traversal is the process of visiting each node in a tree data structure exactly once in a specific order. The two main categories of tree traversal are:
+- ✅ Depth-First Traversal
+- ✅ Breadth-First Traversal
+
+# Depth-First Traversal (DFS)
+Depth-First Traversal explores as far as possible along a branch before backtracking. It can be implemented in three ways: Pre-order, In-order, and Post-order.
+<br></br>
+The image below is the simplest trick for binary tree traversal.
+<CustomImage src={'/blogposts-assets/datastructure-binarytree/trick.jpg'} alt={'image'} width={400} height={500} caption={''} />
+<br></br>
+<br></br>
+## 1. Pre-order Traversal
+<CustomImage src={'/blogposts-assets/datastructure-binarytree/preorder_traversal.gif'} alt={'image'} width={400} height={500} caption={'Image sourced from Wikimedia Commons'} />
+## Iterative solution in Java using stack
+<CustomImage src={'/blogposts-assets/datastructure-binarytree/preorder_implementation.png'} alt={'image'} width={400} height={500} caption={''} />
+<br></br>
+<br></br>
+## 2. In-order Traversal
+<CustomImage src={'/blogposts-assets/datastructure-binarytree/inorder_traversal.gif'} alt={'image'} width={400} height={500} caption={'Image sourced from Wikimedia Commons'} />
+Used in: Binary Search Trees (BST) to get sorted order
+## Iterative solution in Java using stack
+<CustomImage src={'/blogposts-assets/datastructure-binarytree/inorder_implementation.png'} alt={'image'} width={400} height={500} caption={''} />
+<br></br>
+<br></br>
+## 3. Post-order Traversal
+<CustomImage src={'/blogposts-assets/datastructure-binarytree/postorder_traversal.gif'} alt={'image'} width={400} height={500} caption={'Image sourced from Wikimedia Commons'} />
+Used in: Deleting a tree and expression tree postfix notation
+## Iterative solution in Java using stack
+<CustomImage src={'/blogposts-assets/datastructure-binarytree/postorder_implementation.png'} alt={'image'} width={400} height={500} caption={''} />
+<br></br>
+<br></br>
+
+# Breadth-First Traversal (BFS)
+Unlike DFS, Breadth-First Traversal (BFS) explores nodes level by level. This is often implemented using a queue.
+
+## Level Order Traversal
+Visit nodes level by level from left to right
+Used in: Finding the shortest path in an unweighted graph
+
+# Comparison of Traversal Methods
+<CustomImage src={'/blogposts-assets/datastructure-binarytree/comparison.png'} alt={'image'} width={400} height={500} caption={''} />
+
