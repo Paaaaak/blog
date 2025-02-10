@@ -8,11 +8,69 @@ isPublished: true
 ---
 
 # Introduction
-A Binary Search Tree (BST) is a specific type of binary tree where each node's value is greater than 
-or equal to the values in its left subtree and less than or equal to the values in its right subtree.
+A Binary Search Tree (BST) is a special type of binary tree that <Underline>maintains a sorted order</Underline> of elements, allowing for efficient search, insertion, and deletion operations.
+Similar to a regular binary tree, a Binary Search Tree (BST) can be traversed using preorder, inorder, postorder, or level-order methods. 
+However, an important point to note is that the <Underline>inorder traversal</Underline> of a BST always results in elements being visited in ascending order. 
+Because of this property, inorder traversal is the most commonly used method for traversing a BST.
 <br></br>
 The goal of this articles are followings.
 
 - ✅ Grasp the fundamental properties of binary trees,
 - ✅ Perform basic operations on a binary search tree,
 - ✅ Understand the concept of a height-balanced BST.
+
+# Properties of the Binary Search Tree
+Each node of BST follows these properties:
+## 1. Left Subtree Property: 
+The left subtree of a node contains only nodes with values less than the node's value.
+## 2. Right Subtree Property: 
+The right subtree of a node contains only nodes with values greater than the node's value.
+## 3. No Duplicates: 
+Typically, BSTs do not allow duplicate values.
+## 4. Recursive Structure: 
+Each left and right subtree must also be a BST.
+<br></br>
+Example of a BST:
+<CustomImage src={'/blogposts-assets/datastructure-bst/bst.png'} alt={'image'} width={400} height={500} caption={''} />
+<br></br>
+The left subtree of 8 includes all nodes that are less than 8.<br></br>
+The right subtree of 3 includes all nodes that are greater than 3.
+
+# Time complexity of BST
+<CustomImage src={'/blogposts-assets/datastructure-bst/bst_timecomplexity.png'} alt={'image'} width={400} height={500} caption={''} />
+The efficiency of operations in a BST depends on the height of the tree.
+
+# Searching in a BST
+## The search operation in a BST follows these steps:
+1. Start at the root node.
+2. If the key matches the root, return the node.
+3. If the key is smaller, search in the left subtree.
+4. If the key is greater, search in the right subtree.
+5. Repeat this process recursively until the key is found or the subtree is empty.
+## Best and Average Case <Highlight>O(log n)</Highlight>
+If the BST is balanced, each comparison <Underline>halves the number of remaining nodes</Underline> to check. Thus, search takes O(log n) time.
+## Worst Case <Highlight>O(n)</Highlight>
+If the BST is <Underline>skewed</Underline> (all nodes form a linked list), every search must traverse all n nodes.
+In this case, the time complexity degrades to O(n).
+
+# Insersion in a BST
+## Insertion follows a process similar to searching:
+1. Start at the root.
+2. Compare the key with the current node.
+3. Move left if the key is smaller, move right if it's larger.
+4. When an empty spot is found, insert the new node.
+<br></br>
+## Best & Average Case O(log n)
+When the tree is balanced.<br></br>
+## Worst Case O(n)
+When inserting sorted data into an unbalanced BST.
+
+# Deletion in a BST
+## Deleting a node has three cases:
+1. Node has no children -> Simply remove it.
+2. Node has one child -> Replace it with its child.
+3. Node has two children -> Replace it with its inorder successor (smallest node in right subtree).
+## Best & Average Case O(log n)
+If the tree is balanced, we find and delete the node in logarithmic time.
+## Worst Case O(n)
+If the tree is skewed, deletion takes linear time.

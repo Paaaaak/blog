@@ -4,7 +4,7 @@ const CustomH2 = (props: React.HTMLProps<HTMLHeadingElement>) => {
   const h1Style = {
     color: "white",
     fontSize: "22px",
-    marginTop: "30px",
+    marginTop: "20px",
     marginBottom: "10px",
   };
 
