@@ -7,4 +7,364 @@ backgroundImage: 'https://cdn.pixabay.com/photo/2024/01/10/23/05/town-8500500_96
 isPublished: true
 ---
 
-# Introduction   
+# What is OOP?
+<Highlight>OOP (Object-Oriented Programming)</Highlight> is a way of writing computer programs by thinking of everything as <Underline>objects</Underline>, just like in real life.
+Imagine you have a toy box full of different toys. Each toy has its own shape, color, and things it can do. 
+In OOP, we treat things in a program like those toys, each one has its own properties (like color and size) and actions (like making a sound or moving).
+<br></br>
+Imagine we have a "car" in game.
+A car has color (red, blue, etc.) and speed (fast, slow), a car can drive and brake, a sports car can be a special type of car that is even faster.
+OOP helps us build programs in a way that makes everything easy to organize and reuse, just like sorting your toys into different boxes.
+<br></br>
+We use OOP because it makes coding more organized, reusable, and easier to manage.
+It may still sound a bit confusing at first, but we will go through the four main ideas of Object-Oriented Programming (OOP) below along with 
+examples to make it easier to understand.
+- ✅ Inheritance
+- ✅ Abstraction
+- ✅ Polymorphism
+- ✅ Encapsulation
+
+# The main difference between OOP and non-OOP
+The non-OOP is also called <Underline>Procedural Programming</Underline>. Let's take a look at the difference.
+<br></br>
+## 1. Structure
+OOP: Code is organized into objects that bundle data (variables) and behavior (methods) together.<br></br>
+Non-OOP: Code is organized into functions that operate on data, without bundling them together.
+<br></br>
+## 2. Code Reusability
+OOP: Uses <Underline>inheritance</Underline>, allowing new classes to reuse existing code.<br></br>
+Non-OOP: Requires copying and pasting code or writing separate functions, making reuse harder.
+<br></br>
+## 3. Data Handling
+OOP: Uses <Underline>encapsulation</Underline>, keeping data inside objects and controlling access.<br></br>
+Non-OOP: Data is often stored in global variables, which can be changed by any function, increasing the risk of errors.
+<br></br>
+## 4. Flexibility
+OOP: Uses <Underline>polymorphism</Underline>, allowing different objects to behave differently while following the same structure.<br></br>
+Non-OOP: Functions must be rewritten or modified separately for different behaviors.
+<br></br>
+Non-OOP (Procedural) Approach:
+```
+// Procedural way: Using functions and separate data
+String carColor = "Red";
+int carSpeed = 100;
+
+void drive() {
+    System.out.println("The car is driving at " + carSpeed + " km/h.");
+}
+```
+<br></br>
+OOP Approach:
+```
+// OOP way: Using a class to bundle data and behavior
+class Car {
+    String color;
+    int speed;
+
+    void drive() {
+        System.out.println("The " + color + " car is driving at " + speed + " km/h.");
+    }
+}
+
+```
+With OOP, we can create multiple Car objects with different properties, making the code scalable and reusable.
+In conclusion, Non-OOP is simpler and works well for small programs, while OOP is better for large, 
+complex programs because it helps organize, reuse, and maintain code efficiently.
+<br></br>
+Now let's take a look at the four main ideas of OOP.
+
+# Inheritance
+<Highlight>Inheritance</Highlight> is a fundamental concept in OOP that allows a class (child class or subclass) 
+to acquire the properties and behaviors of another class (parent class or superclass). 
+It promotes code <Underline>reusability</Underline> and makes programs more structured and maintainable.
+
+## 1. In Java, the <Highlight>extends</Highlight> keyword is used to inherit from a class
+```
+class Stricker {
+    void punch() {
+        System.out.println("Punch...");
+    }
+}
+
+class KickBoxer extends Stricker {
+    void kick() {
+        System.out.println("Kick...");
+    }
+}
+
+KickBoxer.punch(); // Punch...
+KickBoxer.kick(); // Kick...
+```
+The KickBoxer class inherits the punch() method from Stricker and also defines its own method kick().
+## 2. The <Highlight>super</Highlight> keyword is used to refer to the parent class
+The super keyword is used to explicitly refer to the <Underline>direct parent class</Underline> in Java. It serves two main purposes:
+- 1. Accessing fields and methods of the parent class
+- 2. Calling the parent class's constructor (must be the first line in the child’s constructor)
+<br></br>
+For example,
+```
+class Stricker {
+    void punch() {
+        System.out.println("Punch...");
+    }
+}
+
+class KickBoxer extends Stricker {
+    void punchAndKick() {
+        super.punch();
+        System.out.println("Kick...");
+    }
+}
+
+KickBoxer.punchAndKick() // Punch...\nKick...
+```
+When a child class is instantiated, the parent class’s constructor is automatically called first. 
+However, this applies only to the <Underline>default (no-argument) constructor</Underline> of the parent class.
+
+If the parent class has a non-default constructor (one with parameters), we must explicitly call it using <Underline>super(arguments)</Underline>.
+
+```
+class Parent {
+    Parent() { // Default constructor
+        System.out.println("Parent...");
+    }
+}
+
+class Child extends Parent {
+    Child() { // Default constructor
+        System.out.println("Child...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Child obj = new Child(); // Creating an instance of Child
+    }
+}
+
+// Output
+// Parent...
+// Child...
+```
+## 3. Java’s Supreme Class: Object
+In Java, every class implicitly extends the <Underline>Object class</Underline>, even if it is not explicitly mentioned. 
+This makes Object the highest superclass in Java, serving as the root of the class hierarchy. 
+Since all Java classes inherit from Object, they automatically have access to its built-in methods, 
+such as <Underline>toString(), equals(), and hashCode()</Underline>.
+
+## Benefit of inheritance
+- 1. Code Reusability – Avoids writing duplicate code.
+- 2. Improved Maintainability – Changes in the parent class automatically apply to child classes.
+- 3. Logical Organization – Helps structure code in a hierarchical manner.
+
+However, Java does <Underline>not support multiple inheritance</Underline> (inheriting from multiple classes) to prevent complexity and ambiguity. 
+Instead, interfaces can be used.
+
+# Abstraction
+<Highlight>Abstraction</Highlight> is the process of hiding implementation details from the user and only showing essential features. 
+It helps in reducing complexity by focusing on what an object does rather than how it does it.
+In Java, abstraction is achieved using abstract classes and interfaces.
+
+## 1. Using Abstract classes
+An <Highlight>abstract class</Highlight> is a class that <Underline>cannot be instantiated</Underline> (you cannot create an object of it). 
+It may contain <Underline>abstract methods</Underline> (methods without implementation) that must be implemented by subclasses.
+```
+abstract class Vehicle {  // Abstract class
+    abstract void start();  // Abstract method (no implementation)
+
+    void stop() {  // Concrete method (has implementation)
+        System.out.println("Vehicle is stopping...");
+    }
+}
+
+class Car extends Vehicle {
+    @Override
+    void start() {
+        System.out.println("Car is starting with a key...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Vehicle myCar = new Car();  // Upcasting
+        myCar.start();  // Calls overridden method
+        myCar.stop();   // Calls inherited method
+    }
+}
+```
+Vehicle is an abstract class that defines an abstract method start(), forcing subclasses to provide their own implementation.
+Car extends Vehicle and implements the abstract method.
+The stop() method in Vhicle is a <Underline>concrete method</Underline> that can be used by all subclasses.
+
+## 2. Using interfaces
+An <Highlight>interface</Highlight> is a blueprint of a class that contains <Underline>only abstract methods</Underline> (before Java 8) and <Underline>default/static methods</Underline> (from Java 8 onwards). 
+Here is the comparison between default and static:
+<CustomImage src={'/blogposts-assets/cs-oop/comparison-methods.png'} alt={'image'} width={400} height={500} caption={''} />
+Unlike abstract classes, <Underline>a class can implement multiple interfaces</Underline> by using <Underline>implements</Underline> keyword.
+In addition, interfaces doesn't have constructors because it is not initiable.
+```
+interface Vehicle {
+    // Default method (can be overridden)
+    default void start() {
+        System.out.println("Vehicle is starting...");
+    }
+
+    // Static method (cannot be overridden)
+    static void service() {
+        System.out.println("Vehicle service in progress...");
+    }
+}
+
+class Car implements Vehicle {
+    @Override
+    public void start() {  // Overriding the default method
+        System.out.println("Car is starting with a key...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car car = new Car();
+        car.start();  // Calls overridden method
+        
+        // Calling static method from interface
+        Vehicle.service();
+    }
+}
+
+// Output
+// Car is starting with a key...
+// Vehicle service in progress...
+```
+## Benefit of abstraction
+- 1. Hides Complexity – Users only interact with necessary functionality, not the internal logic.
+- 2. Improves Maintainability – Changing internal implementation does not affect external users.
+- 3. Enhances Code Reusability – Abstract classes and interfaces promote reusability across different classes.
+- 4. Supports Loose Coupling – Classes depend on abstract definitions, making the system more modular and flexible.
+
+# Polymorphism
+The term "polymorphism" comes from Greek, meaning "many forms".
+It refers to the ability of objects to take on multiple forms or behaviors depending on the context. 
+In simpler terms, polymorphism allows a single interface or method to operate on different types of data or objects.
+Polymorphism can be categorized into two main types: compile-time polymorphism and run-time polymorphism.
+
+## 1. Compile-time (Static) Polymorphism
+This is achieved through <Underline>method overloading</Underline>. 
+The method to be executed is determined at compile time based on the number or types of arguments.
+```
+class MathOperations {
+    // Method overloading (same name, different parameters)
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    double add(double a, double b) {
+        return a + b;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        MathOperations math = new MathOperations();
+        System.out.println(math.add(5, 10));       // Calls int add(int, int)
+        System.out.println(math.add(5.5, 10.5));  // Calls double add(double, double)
+    }
+}
+```
+
+## 2. Run-time (Dynamic) Polymorphism
+This is achieved through method overloading and inheritance. 
+The method to be executed is determined at runtime based on the object's actual type.
+```
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Cat meows");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal myAnimal = new Animal(); // Parent class object
+        Animal myDog = new Dog();        // Child class object
+        Animal myCat = new Cat();       // Child class object
+
+        myAnimal.sound(); // "Animal makes a sound"
+        myDog.sound();    // "Dog barks" (Runtime polymorphism)
+        myCat.sound();    // "Cat meows" (Runtime polymorphism)
+    }
+}
+```
+## How Polymorphism works
+1. Inheritance: A subclass inherits methods and properties from a superclass.<br></br>
+2. Method Overriding: The subclass provides its own implementation of a method already defined in the superclass.<br></br>
+3. Upcasting: A reference of the superclass type can point to an object of the subclass. (e.g. Animal myDog = new Dog();)<br></br>
+4. Dynamic Method Dispatch: At runtime, the JVM determines which version of the overridden method to call based on the actual object type.<br></br>
+
+## Benefit of polymorphism
+- 1. Code Reusability: Write generic code that works with different types of objects.
+- 2. Flexibility: Easily extend and modify code without changing existing logic.
+- 3. Simplified Code: Reduces the need for repetitive code by using a single interface for multiple forms.
+- 4. Maintainability: Makes code easier to maintain and understand.
+
+# Encapsulation
+<Highlight>Encapsulation</Highlight> is the concept of bundling the data (variables) and methods (functions) that operate on the data into a single unit or class. 
+More importantly, it is used to restrict direct access to some of an object's components and protect the object's integrity by preventing unintended or harmful modifications.
+In Java, it is implemented through the use of <Underline>access modifiers</Underline>, which control how the members (fields and methods) of a class are accessed from outside the class.
+
+## 1. Use access modifiers to protect important data
+The table below represents the access range of each access modifier in Java.
+<CustomImage src={'/blogposts-assets/cs-oop/access-modifier.png'} alt={'image'} width={400} height={500} caption={''} />
+The <Highlight>private</Highlight> modifier restricts access to the class member (fields, methods) only to the class where they are defined. No other class can access them.
+It is used for <Underline>encapsulation</Underline>, ensuring that the fields or methods cannot be accessed or modified outside the class.
+
+## 2. Access private data using public methods
+Public methods, often called <Highlight>getter</Highlight> and <Highlight>setter</Highlight> methods, are used to provide access to private variables.
+Getters are used to retrieve the values of variables, and setters are used to modify them.
+By using them, developers can enforce rules or validation before changing or retrieving data, allowing for better control over the object’s state.
+```
+public class Phone {
+  private String name;
+  private int version;
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public int getVersion() {
+    return version;
+  }
+
+  public void setVersion(int version) {
+    if (version > 0) {
+      this.version = version'
+    }
+  }
+}
+```
+In this example, the Phone class encapsulates the data (name and version). The name and version fields are private, meaning they cannot be accessed directly
+from outside the class. Instead, public getter and setter methods are used to interact with these fields.
+<br></br>
+The setVersion method includes a validation check to ensure that the version is positive before it is set.
+
+## Benefit of inheritance
+- 1. Code Reusability – Avoids writing duplicate code.
+- 2. Improved Maintainability – Changes in the parent class automatically apply to child classes.
+- 3. Logical Organization – Helps structure code in a hierarchical manner.
